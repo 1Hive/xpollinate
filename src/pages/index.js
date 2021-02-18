@@ -44,6 +44,9 @@ export default function Home() {
               </span>
             )}
             <br />
+            <div style={{ padding: '2rem' }}>
+              <Modal />
+            </div>
           </Box>
           <Box
             padding="4"
