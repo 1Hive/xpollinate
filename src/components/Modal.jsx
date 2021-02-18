@@ -1,14 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { Web3Context } from 'contexts/Web3Context';
 import { ConnextModal } from "@connext/vector-modal";
 import { Grid, Button, TextField, Select, MenuItem } from "@material-ui/core";
 import getRpcUrl from 'lib/rpc'
 
 export default function Modal() {
+  const {
+    provider,
+  } = useContext(Web3Context);
   const [showModal, setShowModal] = useState(false);
-
+  const [injectedProvider, setInjectedProvider] = useState();
   const [withdrawalAddress, setWithdrawalAddress] = useState("");
   const [open, setOpen] = useState(false);
-  const [injectedProvider, setInjectedProvider] = useState();
+  
+  useEffect(async () => {
+    if (window.ethereum) {
+      const req = await (window).ethereum.send(
+        "eth_requestAccounts"
+      );
+      setInjectedProvider((window).ethereum);
+    }
+  }, window.ethereum)
 
   const handleChange = (event) => {
     setWithdrawalAddress(event.target.value);
@@ -71,7 +83,7 @@ export default function Modal() {
   const [chain, setChain] = useState(networks[0]);
   return (
     <>
-      <form onSubmit={handleSubmit} noValidate>
+     <form onSubmit={handleSubmit} noValidate>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <Select
