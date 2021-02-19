@@ -81,10 +81,6 @@ export default function Modal() {
   };
 
   const [chain, setChain] = useState(networks[0]);
-  console.log('chain.depositChainId: ', chain?.depositChainId);
-  console.log('chain.withdrawChainId: ', chain?.withdrawChainId);
-  console.log('getRpcUrl[chain.depositChainId]: ', getRpcUrl[chain?.depositChainId]);
-  console.log('getRpcUrl[chain.withdrawChainId]: ', getRpcUrl[chain?.withdrawChainId]);
   return (
     <>
      <form onSubmit={handleSubmit} noValidate>
@@ -139,7 +135,7 @@ export default function Modal() {
 
       <ConnextModal
         showModal={showModal}
-        routerPublicIdentifier="vector8Uz1BdpA9hV5uTm6QUv5jj1PsUyCH8m8ciA94voCzsxVmrBRor"
+        routerPublicIdentifier="vector892GMZ3CuUkpyW8eeXfW2bt5W73TWEXtgV71nphXUXAmpncnj8"
         depositAssetId={chain.tokens[0].depositAssetId}
         depositChainId={chain.depositChainId}
         withdrawAssetId={chain.tokens[0].withdrawAssetId}

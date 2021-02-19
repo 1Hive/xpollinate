@@ -1,9 +1,9 @@
 export default function getRpcUrl(networkId) {
   switch (networkId) {
     case 137:
-      return "https://rpc-mainnet.matic.network";
+      return process.env.NEXT_PUBLIC_MATIC_RPC;
     case 100:
     default:
-      return "https://rpc.xdaichain.com/";
+      return process.env.NEXT_PUBLIC_XDAI_RPC;
   }
 }
