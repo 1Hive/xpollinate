@@ -142,8 +142,8 @@ export default function Modal() {
         withdrawChainId={chain.withdrawChainId}
         withdrawalAddress={withdrawalAddress}
         onClose={() => setShowModal(false)}
-        depositChainProvider={getRpcUrl[chain.depositChainId]}
-        withdrawChainProvider={getRpcUrl[chain.withdrawChainId]}
+        depositChainProvider={getRpcUrl(chain.depositChainId)}
+        withdrawChainProvider={getRpcUrl(chain.withdrawChainId)}
         injectedProvider={injectedProvider}
       />
     </>
