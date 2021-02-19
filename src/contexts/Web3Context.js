@@ -5,13 +5,12 @@ import { initOnboard, initNotify } from 'lib/connector';
 
 export const Web3Context = React.createContext({});
 
-let provider;
-
 export const Web3Provider = ({ children }) => {
   const [address, setAddress] = useState(null);
   const [network, setNetwork] = useState(null);
   const [balance, setBalance] = useState(null);
   const [wallet, setWallet] = useState({});
+  const [provider, setProvider] = useState();
 
   const [onboard, setOnboard] = useState(null);
   const [notify, setNotify] = useState(null);
@@ -31,11 +30,11 @@ export const Web3Provider = ({ children }) => {
             wallet.provider
           );
 
-          provider = ethersProvider;
+          setProvider(ethersProvider);
 
           window.localStorage.setItem('selectedWallet', wallet.name);
         } else {
-          provider = null;
+          setProvider(null);
           setWallet({});
         }
       },
@@ -167,6 +166,7 @@ export const Web3Provider = ({ children }) => {
         onboard,
         notify,
         provider,
+        setProvider,
       }}
     >
       {children}

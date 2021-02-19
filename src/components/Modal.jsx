@@ -135,7 +135,7 @@ export default function Modal() {
 
       <ConnextModal
         showModal={showModal}
-        routerPublicIdentifier="vector7tbbTxQp8ppEQUgPsbGiTrVdapLdU5dH7zTbVuXRf1M4CEBU9Q"
+        routerPublicIdentifier="vector892GMZ3CuUkpyW8eeXfW2bt5W73TWEXtgV71nphXUXAmpncnj8"
         depositAssetId={chain.tokens[0].depositAssetId}
         depositChainId={chain.depositChainId}
         withdrawAssetId={chain.tokens[0].withdrawAssetId}
