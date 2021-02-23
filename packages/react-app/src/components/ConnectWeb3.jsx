@@ -21,7 +21,7 @@ const ConnectWeb3 = () => {
       mx={4}
     >
       <Flex
-        bg={account && !loading ? 'red.500' : 'blue.500'}
+        bg={account && !loading ? 'red.500' : 'teal.500'}
         borderRadius="50%"
         p="1rem"
         justify="center"
@@ -46,13 +46,13 @@ const ConnectWeb3 = () => {
         </>
       )}
       {account && !loading ? (
-        <Button onClick={disconnect} colorScheme="green" px={12}>
+        <Button onClick={disconnect} colorScheme="teal" px={12}>
           Disconnect
         </Button>
       ) : (
         <Button
           onClick={connectWeb3}
-          colorScheme="green"
+          colorScheme="teal"
           px={12}
           isLoading={loading}
         >
