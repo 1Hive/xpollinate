@@ -56,6 +56,7 @@ export const Web3Provider = ({ children }) => {
         }
       }
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.log({ web3ModalError: error });
     }
   }, []);
@@ -77,6 +78,7 @@ export const Web3Provider = ({ children }) => {
         setWeb3Provider(modalProvider);
       });
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.log({ web3ModalError: error });
     }
     setLoading(false);

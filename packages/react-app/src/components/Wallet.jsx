@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useContext, useState } from 'react';
+import React from 'react';
+import { useContext } from 'react';
 import { Box } from '@chakra-ui/react';
 import { Web3Context } from 'contexts/Web3Context';
 import { Modal } from 'components/index';
