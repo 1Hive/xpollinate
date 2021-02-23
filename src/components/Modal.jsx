@@ -38,7 +38,7 @@ export default function Modal() {
   const XDAI_MATIC_TOKENS = [
     {
       name: "DAI",
-      depositAssetId: "0x44fA8E6f47987339850636F88629646662444217", // xDai
+      depositAssetId: "0x0000000000000000000000000000000000000000", // xDai
       withdrawAssetId: "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063", // Matic
     },
   ];
@@ -47,7 +47,7 @@ export default function Modal() {
     {
       name: "DAI",
       depositAssetId: "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063", // Matic
-      withdrawAssetId: "0x44fA8E6f47987339850636F88629646662444217", // xDai
+      withdrawAssetId: "0x0000000000000000000000000000000000000000", // xDai
     },
   ];
   
