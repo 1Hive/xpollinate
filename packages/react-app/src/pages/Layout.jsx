@@ -14,8 +14,6 @@ export const Layout = ({ children }) => {
 
   return (
     <div>
-      <title>xDai/Matic Bridge</title>
-      <link rel="icon" href="/favicon.ico" />
       <Header>
         <div>Hello</div>
       </Header>
