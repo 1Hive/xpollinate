@@ -1,39 +1,28 @@
 {
-  "name": "vortex",
-  "version": "0.1.0",
+  "name": "@1hive-connext/monorepo",
+  "version": "1.0.0",
+  "keywords": [
+    "ethereum",
+    "react",
+    "workspaces",
+    "yarn"
+  ],
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint --ignore-path .gitignore \"src/**/*.+(js|jsx)\"",
-    "format": "prettier --ignore-path .gitignore \"src/**/*.+js|jsx)\" --write"
+    "react-app:build": "yarn workspace @1hive-connext/react-app build",
+    "react-app:eject": "yarn workspace @1hive-connext/react-app eject",
+    "react-app:ipfs": "yarn workspace @1hive-connext/react-app ipfs",
+    "react-app:lint": "yarn workspace @1hive-connext/react-app lint",
+    "react-app:start": "yarn workspace @1hive-connext/react-app start",
+    "react-app:test": "yarn workspace @1hive-connext/react-app test"
   },
-  "dependencies": {
-    "@chakra-ui/react": "^1.3.3",
-    "@connext/vector-modal": "0.1.49",
-    "@emotion/react": "^11.1.5",
-    "@emotion/styled": "^11.1.5",
-    "@material-ui/core": "^4.11.3",
-    "babel-eslint": "^10.1.0",
-    "bnc-notify": "^1.5.1",
-    "bnc-onboard": "^1.19.1",
-    "emotion-theming": "^11.0.0",
-    "ethers": "^5.0.29",
-    "framer-motion": "^3.5.2",
-    "next": "10.0.6",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "web3": "^1.3.4"
-  },
-  "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-config-react-app": "^5.2.0",
-    "eslint-import-resolver-alias": "^1.1.2",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-react": "^7.22.0",
-    "prettier": "^2.2.1"
+  "workspaces": {
+    "nohoist": [
+      "**/@graphprotocol/graph-ts",
+      "**/@graphprotocol/graph-ts/**"
+    ],
+    "packages": [
+      "packages/*"
+    ]
   }
 }

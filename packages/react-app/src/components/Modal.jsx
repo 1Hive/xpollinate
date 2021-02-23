@@ -1,70 +1,57 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from 'react';
 import { Web3Context } from 'contexts/Web3Context';
-import { ConnextModal } from "@connext/vector-modal";
-import { Grid, Button, TextField, Select, MenuItem } from "@material-ui/core";
-import getRpcUrl from 'lib/rpc'
+import { ConnextModal } from '@connext/vector-modal';
+import { Grid, Button, TextField, Select, MenuItem } from '@material-ui/core';
+import getRpcUrl from 'lib/rpc';
 
-export default function Modal() {
-  const {
-    provider,
-  } = useContext(Web3Context);
+const Modal = (props) => {
+  const { ethersProvider } = useContext(Web3Context);
   const [showModal, setShowModal] = useState(false);
-  const [injectedProvider, setInjectedProvider] = useState();
-  const [withdrawalAddress, setWithdrawalAddress] = useState("");
+  const [withdrawalAddress, setWithdrawalAddress] = useState('');
+  // const [injectedProvider, setInjectedProvider] = React.useState();
   const [open, setOpen] = useState(false);
-  
-  useEffect(async () => {
-    if (window.ethereum) {
-      const req = await (window).ethereum.send(
-        "eth_requestAccounts"
-      );
-      setInjectedProvider((window).ethereum);
-    }
-  }, window.ethereum)
-
   const handleChange = (event) => {
     setWithdrawalAddress(event.target.value);
   };
 
   const handleSubmit = (values) => {
-    const errors = { receiverAddress: "" };
+    const errors = { receiverAddress: '' };
+
     if (!values.receiverAddress) {
-      errors.receiverAddress = "Required";
+      errors.receiverAddress = 'Required';
     }
     return errors;
   };
 
-
   const XDAI_MATIC_TOKENS = [
     {
-      name: "DAI",
-      depositAssetId: "0x0000000000000000000000000000000000000000", // xDai
-      withdrawAssetId: "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063", // Matic
+      name: 'DAI',
+      depositAssetId: '0x0000000000000000000000000000000000000000', // xDai
+      withdrawAssetId: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063', // Matic
     },
   ];
 
   const MATIC_XDAI_TOKENS = [
     {
-      name: "DAI",
-      depositAssetId: "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063", // Matic
-      withdrawAssetId: "0x0000000000000000000000000000000000000000", // xDai
+      name: 'DAI',
+      depositAssetId: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063', // Matic
+      withdrawAssetId: '0x0000000000000000000000000000000000000000', // xDai
     },
   ];
-  
 
   const networks = [
     {
       depositChainId: 100,
-      depositChainName: "xDai Chain",
+      depositChainName: 'xDai Chain',
       withdrawChainId: 137,
-      withdrawChainName: "Matic Mainnet",
+      withdrawChainName: 'Matic Mainnet',
       tokens: XDAI_MATIC_TOKENS,
     },
     {
       depositChainId: 137,
-      depositChainName: "Matic Mainnet",
+      depositChainName: 'Matic Mainnet',
       withdrawChainId: 100,
-      withdrawChainName: "xDai",
+      withdrawChainName: 'xDai',
       tokens: MATIC_XDAI_TOKENS,
     },
   ];
@@ -81,9 +68,10 @@ export default function Modal() {
   };
 
   const [chain, setChain] = useState(networks[0]);
+
   return (
     <>
-     <form onSubmit={handleSubmit} noValidate>
+      <form onSubmit={handleSubmit} noValidate>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <Select
@@ -144,8 +132,10 @@ export default function Modal() {
         onClose={() => setShowModal(false)}
         depositChainProvider={getRpcUrl(chain.depositChainId)}
         withdrawChainProvider={getRpcUrl(chain.withdrawChainId)}
-        injectedProvider={injectedProvider}
+        injectedProvider={ethersProvider}
       />
     </>
   );
-}
+};
+
+export default Modal;
