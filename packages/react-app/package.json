@@ -66,6 +66,7 @@
     "eject": "react-scripts eject",
     "ipfs": "yarn build && node scripts/ipfs.js",
     "start": "react-scripts start",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "lint": "eslint --fix --ext .js,.jsx ."
   }
 }
