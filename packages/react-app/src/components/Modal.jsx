@@ -1,4 +1,5 @@
-import React, { useState, useContext } from 'react';
+/* eslint-disable no-console */
+import React, { useState, useContext, useEffect } from 'react';
 import { Web3Context } from 'contexts/Web3Context';
 import { ConnextModal } from '@connext/vector-modal';
 import { Grid, Button, TextField, Select, MenuItem } from '@material-ui/core';
@@ -8,8 +9,23 @@ const Modal = (props) => {
   const { ethersProvider } = useContext(Web3Context);
   const [showModal, setShowModal] = useState(false);
   const [withdrawalAddress, setWithdrawalAddress] = useState('');
-  // const [injectedProvider, setInjectedProvider] = React.useState();
+  const [injectedProvider, setInjectedProvider] = React.useState();
   const [open, setOpen] = useState(false);
+
+  console.log(ethersProvider);
+
+  useEffect(() => {
+    async function loadEffect() {
+      if (window.ethereum) {
+        const req = await window.ethereum.send('eth_requestAccounts');
+
+        console.log('req: ', req);
+        setInjectedProvider(window.ethereum);
+      }
+    }
+    loadEffect();
+  }, [injectedProvider]);
+
   const handleChange = (event) => {
     setWithdrawalAddress(event.target.value);
   };
@@ -121,19 +137,23 @@ const Modal = (props) => {
         </Grid>
       </Grid>
 
-      <ConnextModal
-        showModal={showModal}
-        routerPublicIdentifier="vector892GMZ3CuUkpyW8eeXfW2bt5W73TWEXtgV71nphXUXAmpncnj8"
-        depositAssetId={chain.tokens[0].depositAssetId}
-        depositChainId={chain.depositChainId}
-        withdrawAssetId={chain.tokens[0].withdrawAssetId}
-        withdrawChainId={chain.withdrawChainId}
-        withdrawalAddress={withdrawalAddress}
-        onClose={() => setShowModal(false)}
-        depositChainProvider={getRpcUrl(chain.depositChainId)}
-        withdrawChainProvider={getRpcUrl(chain.withdrawChainId)}
-        injectedProvider={ethersProvider}
-      />
+      {ethersProvider !== 'undefined' ? (
+        <ConnextModal
+          showModal={showModal}
+          routerPublicIdentifier="vector892GMZ3CuUkpyW8eeXfW2bt5W73TWEXtgV71nphXUXAmpncnj8"
+          depositAssetId={chain.tokens[0].depositAssetId}
+          depositChainId={chain.depositChainId}
+          withdrawAssetId={chain.tokens[0].withdrawAssetId}
+          withdrawChainId={chain.withdrawChainId}
+          withdrawalAddress={withdrawalAddress}
+          onClose={() => setShowModal(false)}
+          depositChainProvider={getRpcUrl(chain.depositChainId)}
+          withdrawChainProvider={getRpcUrl(chain.withdrawChainId)}
+          injectedProvider={injectedProvider}
+        />
+      ) : (
+        <h1>Loading...</h1>
+      )}
     </>
   );
 };
