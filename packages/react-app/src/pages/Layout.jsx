@@ -10,12 +10,10 @@ export const Layout = ({ children }) => {
     !!account && (providerChainId === 100 || providerChainId === 137);
 
   // eslint-disable-next-line no-console
-  console.log(valid, account, providerChainId);
+  // console.log(valid, account, providerChainId);
 
   return (
     <div>
-      <title>xDai/Matic Bridge</title>
-      <link rel="icon" href="/favicon.ico" />
       <Header>
         <div>Hello</div>
       </Header>
