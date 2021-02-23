@@ -1,27 +1,11 @@
 import React, { useContext } from "react";
 import { Web3Context } from 'contexts/Web3Context';
 import { Box, Heading, Flex, Button, Text } from "@chakra-ui/react";
-import networkName from 'lib/network'
 
 const Header = props => {
-  const {
-    onboard,
-    provider,
-    network,
-    address
-  } = useContext(Web3Context);
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
-  async function readyToTransact() {
-    if (!provider) {
-      const walletSelected = await onboard.walletSelect();
-      if (!walletSelected) return false;
-    }
-
-    const ready = await onboard.walletCheck();
-    return ready;
-  }
-
+  
   return (
     <Flex
       as="nav"
@@ -63,9 +47,9 @@ const Header = props => {
         display={{ sm: show ? "block" : "none", md: "block" }}
         mt={{ base: 4, md: 0 }}
       >
-        {!address ? (<Button bg="transparent" border="1px" onClick={() => readyToTransact()}>
+        {/* {!account ? (<Button bg="transparent" border="1px" onClick={connectWeb3}>
           Connect Wallet
-        </Button>): <Text>{networkName(network)}</Text>}   
+        </Button>): <Text>{networkName(providerChainId)}</Text>}    */}
       </Box>
     </Flex>
   );

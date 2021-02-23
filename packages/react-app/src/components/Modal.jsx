@@ -4,24 +4,14 @@ import { ConnextModal } from "@connext/vector-modal";
 import { Grid, Button, TextField, Select, MenuItem } from "@material-ui/core";
 import getRpcUrl from 'lib/rpc'
 
-export default function Modal() {
+const Modal = props => {
   const {
-    provider,
+    ethersProvider,
   } = useContext(Web3Context);
   const [showModal, setShowModal] = useState(false);
-  const [injectedProvider, setInjectedProvider] = useState();
   const [withdrawalAddress, setWithdrawalAddress] = useState("");
+  // const [injectedProvider, setInjectedProvider] = React.useState();
   const [open, setOpen] = useState(false);
-  
-  useEffect(async () => {
-    if (window.ethereum) {
-      const req = await (window).ethereum.send(
-        "eth_requestAccounts"
-      );
-      setInjectedProvider((window).ethereum);
-    }
-  }, window.ethereum)
-
   const handleChange = (event) => {
     setWithdrawalAddress(event.target.value);
   };
@@ -144,8 +134,10 @@ export default function Modal() {
         onClose={() => setShowModal(false)}
         depositChainProvider={getRpcUrl(chain.depositChainId)}
         withdrawChainProvider={getRpcUrl(chain.withdrawChainId)}
-        injectedProvider={injectedProvider}
+        injectedProvider={ethersProvider}
       />
     </>
   );
 }
+
+export default Modal;
