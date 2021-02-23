@@ -41,6 +41,7 @@ export const Web3Provider = ({ children }) => {
         );
 
         const providerNetwork = await provider.getNetwork();
+
         setWeb3State({
           ethersProvider: provider,
           providerChainId: providerNetwork.chainId,
@@ -49,6 +50,7 @@ export const Web3Provider = ({ children }) => {
           const signer = provider.getSigner();
           const gotAccount = await signer.getAddress();
           const gotBalance = await signer.getBalance();
+
           setAccount(gotAccount);
           setBalance(gotBalance);
         }
@@ -106,7 +108,7 @@ export const Web3Provider = ({ children }) => {
         disconnect,
         providerChainId,
         account,
-        balance
+        balance,
       }}
     >
       {children}

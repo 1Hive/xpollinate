@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
-import { Web3Context } from 'contexts/Web3Context';
-import { Box, Heading, Flex, Button, Text } from "@chakra-ui/react";
+import React from 'react';
+import { Box, Heading, Flex } from '@chakra-ui/react';
 
-const Header = props => {
+const Header = (props) => {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
-  
+
   return (
     <Flex
       as="nav"
@@ -17,13 +16,13 @@ const Header = props => {
       color="white"
       {...props}
     >
-      <Flex align="center" mr={5} >
-        <Heading as="h1" size="lg" letterSpacing={"-.1rem"}>
+      <Flex align="center" mr={5}>
+        <Heading as="h1" size="lg" letterSpacing={'-.1rem'}>
           xDai/Matic Bridge
         </Heading>
       </Flex>
 
-      <Box display={{ base: "block", md: "none" }} onClick={handleToggle}>
+      <Box display={{ base: 'block', md: 'none' }} onClick={handleToggle}>
         <svg
           fill="white"
           width="12px"
@@ -36,15 +35,14 @@ const Header = props => {
       </Box>
 
       <Box
-        display={{ sm: show ? "block" : "none", md: "flex" }}
-        width={{ sm: "full", md: "auto" }}
+        display={{ sm: show ? 'block' : 'none', md: 'flex' }}
+        width={{ sm: 'full', md: 'auto' }}
         alignItems="center"
         flexGrow={1}
-      >
-      </Box>
+      ></Box>
 
       <Box
-        display={{ sm: show ? "block" : "none", md: "block" }}
+        display={{ sm: show ? 'block' : 'none', md: 'block' }}
         mt={{ base: 4, md: 0 }}
       >
         {/* {!account ? (<Button bg="transparent" border="1px" onClick={connectWeb3}>

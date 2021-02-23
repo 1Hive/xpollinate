@@ -6,6 +6,7 @@ import networkName from 'lib/network';
 
 const ConnectWeb3 = () => {
   const { connectWeb3, loading, account, disconnect } = useContext(Web3Context);
+
   return (
     <Flex
       background="white"
@@ -27,8 +28,7 @@ const ConnectWeb3 = () => {
         align="center"
         color="white"
         mb={4}
-      >
-      </Flex>
+      ></Flex>
       {loading ? (
         <Text fontSize="xl" fontWeight="bold" mb={4}>
           Connecting Wallet
@@ -36,13 +36,11 @@ const ConnectWeb3 = () => {
       ) : (
         <>
           <Text fontSize="xl" fontWeight="bold" mb={4}>
-            {account ? `Switch to a supported network` : 'Connect Wallet'}
+            {account ? 'Switch to a supported network' : 'Connect Wallet'}
           </Text>
           <Text color="greyText" mb={4} textAlign="center">
             {account
-              ? `To access OmniBridge, please switch to ${networkName(
-                  100,
-                )}`
+              ? `To access OmniBridge, please switch to ${networkName(100)}`
               : 'To get started, connect your wallet'}
           </Text>
         </>
