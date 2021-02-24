@@ -40,7 +40,9 @@ const ConnectWeb3 = () => {
           </Text>
           <Text color="greyText" mb={4} textAlign="center">
             {account
-              ? `To access OmniBridge, please switch to ${networkName(100)}`
+              ? `To access OmniBridge, please switch to ${networkName(
+                  100
+                )} or ${networkName(137)}`
               : 'To get started, connect your wallet'}
           </Text>
         </>

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Wallet } from 'components/index';
+import { Container } from 'components/index';
 
 export const Home = (props) => {
-  return <Wallet />;
+  return <Container />;
 };
