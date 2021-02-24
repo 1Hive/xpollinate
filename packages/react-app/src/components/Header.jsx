@@ -1,7 +1,11 @@
-import React from 'react';
-import { Box, Heading, Flex } from '@chakra-ui/react';
+import React, { useContext } from 'react';
+import { Box, Heading, Flex, Button } from '@chakra-ui/react';
+import { Web3Context } from 'contexts/Web3Context';
+import networkName from 'lib/network';
 
 const Header = (props) => {
+  const { account, providerChainId } = useContext(Web3Context);
+
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
 
@@ -40,14 +44,20 @@ const Header = (props) => {
         alignItems="center"
         flexGrow={1}
       ></Box>
-
+      <Box style={{ margin: '1rem' }}>{networkName(providerChainId)}</Box>
       <Box
         display={{ sm: show ? 'block' : 'none', md: 'block' }}
         mt={{ base: 4, md: 0 }}
       >
-        {/* {!account ? (<Button bg="transparent" border="1px" onClick={connectWeb3}>
-          Connect Wallet
-        </Button>): <Text>{networkName(providerChainId)}</Text>}    */}
+        {account ? (
+          <Button colorScheme="white" variant="outline">
+            {account}
+          </Button>
+        ) : (
+          <Button colorScheme="white" variant="outline" disabled>
+            No account found.
+          </Button>
+        )}
       </Box>
     </Flex>
   );

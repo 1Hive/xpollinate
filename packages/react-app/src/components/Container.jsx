@@ -1,12 +1,8 @@
 import React from 'react';
-import { useContext } from 'react';
 import { Box } from '@chakra-ui/react';
-import { Web3Context } from 'contexts/Web3Context';
 import { Modal } from 'components/index';
 
-const Wallet = () => {
-  const { account, balance, ethersProvider } = useContext(Web3Context);
-
+const Container = () => {
   return (
     <div>
       <Box
@@ -16,16 +12,8 @@ const Wallet = () => {
         borderRadius="lg"
         maxW="3xl"
       >
-        Address: {account && <span>{account}</span>}
-        <br />
-        {account != null && (
-          <span>
-            {Number(balance) > 0 ? balance / 1000000000000000000 : balance} xDai
-          </span>
-        )}
-        <br />
         <div style={{ padding: '2rem' }}>
-          {ethersProvider != null ? <Modal /> : <p>Connect Wallet First!</p>}
+          <Modal />
         </div>
       </Box>
       <Box
@@ -42,4 +30,4 @@ const Wallet = () => {
   );
 };
 
-export default Wallet;
+export default Container;

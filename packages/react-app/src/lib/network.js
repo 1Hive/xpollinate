@@ -2,8 +2,8 @@ export default function networkName(id) {
   switch (Number(id)) {
     case 100:
     default:
-      return 'xdai';
+      return 'xDai Network';
     case 137:
-      return 'matic';
+      return 'Matic Network';
   }
 }
