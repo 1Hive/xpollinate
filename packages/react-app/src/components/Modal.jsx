@@ -1,30 +1,15 @@
 /* eslint-disable no-console */
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { Web3Context } from 'contexts/Web3Context';
 import { ConnextModal } from '@connext/vector-modal';
 import { Grid, Button, TextField, Select, MenuItem } from '@material-ui/core';
 import getRpcUrl from 'lib/rpc';
 
 const Modal = (props) => {
-  const { ethersProvider } = useContext(Web3Context);
+  const { web3Provider } = useContext(Web3Context);
   const [showModal, setShowModal] = useState(false);
   const [withdrawalAddress, setWithdrawalAddress] = useState('');
-  const [injectedProvider, setInjectedProvider] = React.useState();
   const [open, setOpen] = useState(false);
-
-  console.log(ethersProvider);
-
-  useEffect(() => {
-    async function loadEffect() {
-      if (window.ethereum) {
-        const req = await window.ethereum.send('eth_requestAccounts');
-
-        console.log('req: ', req);
-        setInjectedProvider(window.ethereum);
-      }
-    }
-    loadEffect();
-  }, [injectedProvider]);
 
   const handleChange = (event) => {
     setWithdrawalAddress(event.target.value);
@@ -137,7 +122,7 @@ const Modal = (props) => {
         </Grid>
       </Grid>
 
-      {ethersProvider !== 'undefined' ? (
+      {web3Provider !== 'undefined' ? (
         <ConnextModal
           showModal={showModal}
           routerPublicIdentifier="vector892GMZ3CuUkpyW8eeXfW2bt5W73TWEXtgV71nphXUXAmpncnj8"
@@ -149,7 +134,7 @@ const Modal = (props) => {
           onClose={() => setShowModal(false)}
           depositChainProvider={getRpcUrl(chain.depositChainId)}
           withdrawChainProvider={getRpcUrl(chain.withdrawChainId)}
-          injectedProvider={injectedProvider}
+          injectedProvider={web3Provider}
         />
       ) : (
         <h1>Loading...</h1>

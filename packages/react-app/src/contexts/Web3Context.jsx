@@ -27,7 +27,7 @@ const web3Modal = new Web3Modal({
 
 export const Web3Provider = ({ children }) => {
   const [web3State, setWeb3State] = useState({});
-  const { providerChainId, ethersProvider } = web3State;
+  const { providerChainId, ethersProvider, web3Provider } = web3State;
   const [account, setAccount] = useState();
   const [balance, setBalance] = useState();
   const [loading, setLoading] = useState(true);
@@ -44,6 +44,7 @@ export const Web3Provider = ({ children }) => {
 
         setWeb3State({
           ethersProvider: provider,
+          web3Provider: prov,
           providerChainId: providerNetwork.chainId,
         });
         if (updateAccount) {
@@ -105,6 +106,7 @@ export const Web3Provider = ({ children }) => {
     <Web3Context.Provider
       value={{
         ethersProvider,
+        web3Provider,
         connectWeb3,
         loading,
         disconnect,
