@@ -135,6 +135,7 @@ const Modal = (props) => {
           depositChainProvider={getRpcUrl(chain.depositChainId)}
           withdrawChainProvider={getRpcUrl(chain.withdrawChainId)}
           injectedProvider={web3Provider}
+          loginProvider={window.ethereum}
         />
       ) : (
         <h1>Loading...</h1>
