@@ -6,9 +6,9 @@ import { Grid, Button, TextField, Select, MenuItem } from '@material-ui/core';
 import getRpcUrl from 'lib/rpc';
 
 const Modal = (props) => {
-  const { web3Provider } = useContext(Web3Context);
+  const { web3Provider, account } = useContext(Web3Context);
   const [showModal, setShowModal] = useState(false);
-  const [withdrawalAddress, setWithdrawalAddress] = useState('');
+  const [withdrawalAddress, setWithdrawalAddress] = useState(account);
   const [senderOpen, setSenderOpen] = useState(false);
   const [receiverOpen, setReceiverOpen] = useState(false);
 
@@ -54,11 +54,19 @@ const Modal = (props) => {
   const [senderChain, setSenderChain] = useState(NETWORKS[0]);
   const [receiverChain, setReceiverChain] = useState(NETWORKS[1]);
 
+  const swapChains = () => {
+    const s = senderChain;
+    const r = receiverChain;
+
+    setSenderChain(r);
+    setReceiverChain(s);
+  };
+
   return (
     <>
       <form onSubmit={handleSubmit} noValidate>
         <Grid container spacing={2}>
-          <Grid item xs={6}>
+          <Grid item xs={5}>
             <Select
               id="sender-chain"
               open={senderOpen}
@@ -67,6 +75,9 @@ const Modal = (props) => {
               onChange={(event) => setSenderChain(NETWORKS[event.target.value])}
               fullWidth
               defaultValue={0}
+              value={NETWORKS.findIndex(
+                (n) => n.chainId === senderChain.chainId
+              )}
               // component={Select}
             >
               {NETWORKS.map((t, index) => {
@@ -78,8 +89,13 @@ const Modal = (props) => {
               })}
             </Select>
           </Grid>
+          <Grid item xs={2}>
+            <Button variant="outlined" fullWidth onClick={swapChains}>
+              {'<>'}
+            </Button>
+          </Grid>
 
-          <Grid item xs={6}>
+          <Grid item xs={5}>
             <Select
               id="receiver-chain"
               open={receiverOpen}
@@ -90,6 +106,9 @@ const Modal = (props) => {
               }
               fullWidth
               defaultValue={1}
+              value={NETWORKS.findIndex(
+                (n) => n.chainId === receiverChain.chainId
+              )}
               // component={Select}
             >
               {NETWORKS.map((t, index) => {
