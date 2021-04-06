@@ -9,7 +9,8 @@ const Modal = (props) => {
   const { web3Provider } = useContext(Web3Context);
   const [showModal, setShowModal] = useState(false);
   const [withdrawalAddress, setWithdrawalAddress] = useState('');
-  const [open, setOpen] = useState(false);
+  const [senderOpen, setSenderOpen] = useState(false);
+  const [receiverOpen, setReceiverOpen] = useState(false);
 
   const handleChange = (event) => {
     setWithdrawalAddress(event.target.value);
@@ -24,71 +25,85 @@ const Modal = (props) => {
     return errors;
   };
 
-  const XDAI_MATIC_TOKENS = [
+  const NETWORKS = [
     {
-      name: 'DAI',
-      depositAssetId: '0x0000000000000000000000000000000000000000', // xDai
-      withdrawAssetId: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063', // Matic
+      assetId: '0x0000000000000000000000000000000000000000',
+      chainName: 'xDai Chain',
+      chainId: 100,
+      assetName: 'XDAI',
+    },
+    {
+      assetId: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063',
+      chainName: 'Matic Mainnet',
+      chainId: 137,
+      assetName: 'DAI',
+    },
+    {
+      assetId: '0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3',
+      chainName: 'Binance Smart Chain Mainnet',
+      chainId: 56,
+      assetName: 'DAI',
+    },
+    {
+      assetId: '0x0298c2b32eaE4da002a15f36fdf7615BEa3DA047',
+      chainName: 'Huobi ECO Chain Mainnet',
+      chainId: 128,
+      assetName: 'HUSD',
     },
   ];
-
-  const MATIC_XDAI_TOKENS = [
-    {
-      name: 'DAI',
-      depositAssetId: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063', // Matic
-      withdrawAssetId: '0x0000000000000000000000000000000000000000', // xDai
-    },
-  ];
-
-  const networks = [
-    {
-      depositChainId: 100,
-      depositChainName: 'xDai Chain',
-      withdrawChainId: 137,
-      withdrawChainName: 'Matic Mainnet',
-      tokens: XDAI_MATIC_TOKENS,
-    },
-    {
-      depositChainId: 137,
-      depositChainName: 'Matic Mainnet',
-      withdrawChainId: 100,
-      withdrawChainName: 'xDai',
-      tokens: MATIC_XDAI_TOKENS,
-    },
-  ];
-
-  const handleNetwork = (event) => {
-    setChain(networks[event.target.value]);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const [chain, setChain] = useState(networks[0]);
+  const [senderChain, setSenderChain] = useState(NETWORKS[0]);
+  const [receiverChain, setReceiverChain] = useState(NETWORKS[1]);
 
   return (
     <>
       <form onSubmit={handleSubmit} noValidate>
         <Grid container spacing={2}>
-          <Grid item xs={12}>
+          <Grid item xs={6}>
             <Select
-              id="demo-controlled-open-select"
-              open={open}
-              onClose={handleClose}
-              onOpen={handleOpen}
-              onChange={handleNetwork}
+              id="sender-chain"
+              open={senderOpen}
+              onClose={() => setSenderOpen(false)}
+              onOpen={() => setSenderOpen(true)}
+              onChange={(event) => setSenderChain(NETWORKS[event.target.value])}
               fullWidth
               defaultValue={0}
               // component={Select}
             >
-              {networks.map((t, index) => {
+              {NETWORKS.map((t, index) => {
                 return (
-                  <MenuItem value={index} key={index}>
-                    {t.depositChainName} to {t.withdrawChainName}
+                  <MenuItem
+                    disabled={receiverChain.chainId === t.chainId}
+                    value={index}
+                    key={index}
+                  >
+                    {t.chainName} - {t.assetName}
+                  </MenuItem>
+                );
+              })}
+            </Select>
+          </Grid>
+
+          <Grid item xs={6}>
+            <Select
+              id="receiver-chain"
+              open={receiverOpen}
+              onClose={() => setReceiverOpen(false)}
+              onOpen={() => setReceiverOpen(true)}
+              onChange={(event) =>
+                setReceiverChain(NETWORKS[event.target.value])
+              }
+              fullWidth
+              defaultValue={1}
+              // component={Select}
+            >
+              {NETWORKS.map((t, index) => {
+                return (
+                  <MenuItem
+                    value={index}
+                    key={index}
+                    disabled={senderChain.chainId === t.chainId}
+                  >
+                    {t.chainName} - {t.assetName}
                   </MenuItem>
                 );
               })}
@@ -114,8 +129,20 @@ const Modal = (props) => {
             variant="contained"
             color="primary"
             type="submit"
-            disabled={!withdrawalAddress || !chain}
-            onClick={() => setShowModal(true)}
+            disabled={!withdrawalAddress || !senderChain || !receiverChain}
+            onClick={() => {
+              console.log('senderChain: ', senderChain);
+              console.log('receiverChain: ', receiverChain);
+              console.log(
+                'getRpcUrl(senderChain.chainId): ',
+                getRpcUrl(senderChain.chainId)
+              );
+              console.log(
+                'getRpcUrl(receiverChain.chainId): ',
+                getRpcUrl(receiverChain.chainId)
+              );
+              setShowModal(true);
+            }}
           >
             Cross-Chain Transfer
           </Button>
@@ -126,14 +153,14 @@ const Modal = (props) => {
         <ConnextModal
           showModal={showModal}
           routerPublicIdentifier="vector892GMZ3CuUkpyW8eeXfW2bt5W73TWEXtgV71nphXUXAmpncnj8"
-          depositAssetId={chain.tokens[0].depositAssetId}
-          depositChainId={chain.depositChainId}
-          withdrawAssetId={chain.tokens[0].withdrawAssetId}
-          withdrawChainId={chain.withdrawChainId}
+          depositAssetId={senderChain.assetId}
+          depositChainId={senderChain.chainId}
+          withdrawAssetId={receiverChain.assetId}
+          withdrawChainId={receiverChain.chainId}
           withdrawalAddress={withdrawalAddress}
           onClose={() => setShowModal(false)}
-          depositChainProvider={getRpcUrl(chain.depositChainId)}
-          withdrawChainProvider={getRpcUrl(chain.withdrawChainId)}
+          depositChainProvider={getRpcUrl(senderChain.chainId)}
+          withdrawChainProvider={getRpcUrl(receiverChain.chainId)}
           injectedProvider={web3Provider}
           loginProvider={window.ethereum}
         />
