@@ -94,7 +94,12 @@ const Modal = (props) => {
             </Select>
           </Grid>
           <Grid item xs={2}>
-            <Button variant="outlined" fullWidth onClick={swapChains}>
+            <Button
+              variant="outlined"
+              fullWidth
+              style={{ border: 'none' }}
+              onClick={swapChains}
+            >
               {'<>'}
             </Button>
           </Grid>
@@ -142,7 +147,7 @@ const Modal = (props) => {
           </Grid>
         </Grid>
       </form>
-      <Grid container spacing={2} justifyContent="center">
+      <Grid container spacing={2} style={{ justifyContent: 'center' }}>
         <Grid item style={{ marginTop: 16 }}>
           <Button
             variant="contained"
