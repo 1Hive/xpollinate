@@ -94,14 +94,18 @@ const Modal = (props) => {
             </Select>
           </Grid>
           <Grid item xs={2}>
-            <Button
-              variant="outlined"
-              fullWidth
-              style={{ border: 'none' }}
-              onClick={swapChains}
+            <Grid
+              container
+              direction="column"
+              alignContent="center"
+              alignItems="center"
+              justify="center"
+              size="small"
             >
-              {'<>'}
-            </Button>
+              <Button variant="outlined" style={{ border: 'none' }} onClick={swapChains}>
+                {'<>'}
+              </Button>
+            </Grid>
           </Grid>
 
           <Grid item xs={5}>
@@ -133,6 +137,8 @@ const Modal = (props) => {
               })}
             </Select>
           </Grid>
+        </Grid>
+        <Grid container spacing={2}>
           <Grid item xs={12}>
             <TextField
               label="Receiver Address"
