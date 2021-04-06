@@ -44,12 +44,12 @@ const Modal = (props) => {
       chainId: 56,
       assetName: 'DAI',
     },
-    {
-      assetId: '0x0298c2b32eaE4da002a15f36fdf7615BEa3DA047',
-      chainName: 'Huobi ECO Chain Mainnet',
-      chainId: 128,
-      assetName: 'HUSD',
-    },
+    // {
+    //   assetId: '0x0298c2b32eaE4da002a15f36fdf7615BEa3DA047',
+    //   chainName: 'Huobi ECO Chain Mainnet',
+    //   chainId: 128,
+    //   assetName: 'HUSD',
+    // },
   ];
   const [senderChain, setSenderChain] = useState(NETWORKS[0]);
   const [receiverChain, setReceiverChain] = useState(NETWORKS[1]);
