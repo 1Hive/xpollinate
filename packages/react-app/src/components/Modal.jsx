@@ -82,7 +82,11 @@ const Modal = (props) => {
             >
               {NETWORKS.map((t, index) => {
                 return (
-                  <MenuItem value={index} key={index}>
+                  <MenuItem
+                    value={index}
+                    key={index}
+                    disabled={receiverChain.chainId === t.chainId}
+                  >
                     {t.chainName} - {t.assetName}
                   </MenuItem>
                 );
@@ -98,7 +102,7 @@ const Modal = (props) => {
               justify="center"
               size="small"
             >
-              <Button variant="outlined" onClick={swapChains}>
+              <Button variant="outlined" style={{ border: 'none' }} onClick={swapChains}>
                 {'<>'}
               </Button>
             </Grid>
@@ -149,7 +153,7 @@ const Modal = (props) => {
           </Grid>
         </Grid>
       </form>
-      <Grid container spacing={2} justifyContent="center">
+      <Grid container spacing={2} style={{ justifyContent: 'center' }}>
         <Grid item style={{ marginTop: 16 }}>
           <Button
             variant="contained"
