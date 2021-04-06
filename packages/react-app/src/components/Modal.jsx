@@ -71,11 +71,7 @@ const Modal = (props) => {
             >
               {NETWORKS.map((t, index) => {
                 return (
-                  <MenuItem
-                    disabled={receiverChain.chainId === t.chainId}
-                    value={index}
-                    key={index}
-                  >
+                  <MenuItem value={index} key={index}>
                     {t.chainName} - {t.assetName}
                   </MenuItem>
                 );
