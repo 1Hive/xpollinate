@@ -2,7 +2,6 @@ import { Button, Flex, Text } from '@chakra-ui/react';
 import React, { useContext } from 'react';
 
 import { Web3Context } from 'contexts/Web3Context';
-import networkName from 'lib/network';
 
 const ConnectWeb3 = () => {
   const { connectWeb3, loading, account, disconnect } = useContext(Web3Context);
@@ -29,23 +28,10 @@ const ConnectWeb3 = () => {
         color="white"
         mb={4}
       ></Flex>
-      {loading ? (
+      {loading && (
         <Text fontSize="xl" fontWeight="bold" mb={4}>
           Connecting Wallet
         </Text>
-      ) : (
-        <>
-          <Text fontSize="xl" fontWeight="bold" mb={4}>
-            {account ? 'Switch to a supported network' : 'Connect Wallet'}
-          </Text>
-          <Text color="greyText" mb={4} textAlign="center">
-            {account
-              ? `To access OmniBridge, please switch to ${networkName(
-                  100
-                )} or ${networkName(137)}`
-              : 'To get started, connect your wallet'}
-          </Text>
-        </>
       )}
       {account && !loading ? (
         <Button onClick={disconnect} colorScheme="teal" px={12}>

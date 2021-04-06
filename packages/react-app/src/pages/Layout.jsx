@@ -5,9 +5,8 @@ import { Container } from '@chakra-ui/react';
 import { Header, ConnectWeb3 } from 'components/index';
 
 export const Layout = ({ children }) => {
-  const { account, providerChainId } = useContext(Web3Context);
-  const valid =
-    !!account && (providerChainId === 100 || providerChainId === 137);
+  const { account } = useContext(Web3Context);
+  const valid = !!account;
 
   // eslint-disable-next-line no-console
   // console.log(valid, account, providerChainId);

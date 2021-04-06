@@ -22,7 +22,7 @@ const Header = (props) => {
     >
       <Flex align="center" mr={5}>
         <Heading as="h1" size="lg" letterSpacing={'-.1rem'}>
-          xDai/Matic Bridge
+          Cross-Chain Bridge
         </Heading>
       </Flex>
 
