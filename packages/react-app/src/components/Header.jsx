@@ -7,8 +7,6 @@ import { shortenAddress } from 'utils/index';
 const Header = (props) => {
   const { account, providerChainId } = useContext(Web3Context);
 
-  const [show, setShow] = React.useState(false);
-
   return (
     <Flex
       as="nav"
@@ -27,17 +25,14 @@ const Header = (props) => {
         </Heading>
       </Flex>
       <Box
-        display={{ sm: show ? 'block' : 'none', md: 'flex' }}
+        display={{ sm: 'none', md: 'flex' }}
         width={{ sm: 'full', md: 'auto' }}
         alignItems="center"
         padding="0.5rem"
         flexGrow={1}
       ></Box>
       <Box style={{ margin: '0.5rem' }}>{networkName(providerChainId)}</Box>
-      <Box
-        display={{ sm: show ? 'block' : 'none', md: 'block' }}
-        mt={{ base: 4, md: 0 }}
-      >
+      <Box display={{ sm: 'none', md: 'block' }} mt={{ base: 4, md: 0 }}>
         {account ? (
           <Button colorScheme="white" variant="outline">
             {shortenAddress(account)}
