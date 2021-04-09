@@ -1,32 +1,36 @@
 import React from 'react';
-import { Box } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import { Modal } from 'components/index';
 
 const Container = () => {
   return (
-    <div>
+    <Flex align="center" direction="column">
       <Box
-        padding="4"
-        margin="4"
+        width={{ sm: 'full', md: 'auto' }}
+        w={[300, 400, 560]}
+        alignItems="center"
+        padding="1rem"
+        margin="0.5rem"
+        flexGrow={1}
         borderWidth="1px"
         borderRadius="lg"
-        maxW="3xl"
       >
-        <div style={{ padding: '2rem' }}>
-          <Modal />
-        </div>
+        <Modal />
       </Box>
       <Box
-        padding="4"
-        margin="4"
+        width={{ sm: 'full', md: 'auto' }}
+        w={[300, 400, 560]}
+        alignItems="center"
+        padding="1rem"
+        margin="0.5rem"
+        flexGrow={1}
         borderWidth="1px"
         borderRadius="lg"
         bg="red.100"
-        maxW="3xl"
       >
         This is beta software, use at your own risk.
       </Box>
-    </div>
+    </Flex>
   );
 };
 

@@ -2,12 +2,10 @@ import React, { useContext } from 'react';
 import { Box, Heading, Flex, Button } from '@chakra-ui/react';
 import { Web3Context } from 'contexts/Web3Context';
 import networkName from 'lib/network';
+import { shortenAddress } from 'utils/index';
 
 const Header = (props) => {
   const { account, providerChainId } = useContext(Web3Context);
-
-  const [show, setShow] = React.useState(false);
-  const handleToggle = () => setShow(!show);
 
   return (
     <Flex
@@ -15,9 +13,10 @@ const Header = (props) => {
       align="center"
       justify="space-between"
       wrap="wrap"
-      padding="1.5rem"
+      padding="2rem"
       bg="teal.500"
       color="white"
+      m="0 auto"
       {...props}
     >
       <Flex align="center" mr={5}>
@@ -25,33 +24,18 @@ const Header = (props) => {
           Cross-Chain Bridge
         </Heading>
       </Flex>
-
-      <Box display={{ base: 'block', md: 'none' }} onClick={handleToggle}>
-        <svg
-          fill="white"
-          width="12px"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title>Menu</title>
-          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-        </svg>
-      </Box>
-
       <Box
-        display={{ sm: show ? 'block' : 'none', md: 'flex' }}
+        display={{ sm: 'none', md: 'flex' }}
         width={{ sm: 'full', md: 'auto' }}
         alignItems="center"
+        padding="0.5rem"
         flexGrow={1}
       ></Box>
-      <Box style={{ margin: '1rem' }}>{networkName(providerChainId)}</Box>
-      <Box
-        display={{ sm: show ? 'block' : 'none', md: 'block' }}
-        mt={{ base: 4, md: 0 }}
-      >
+      <Box style={{ margin: '0.5rem' }}>{networkName(providerChainId)}</Box>
+      <Box display={{ sm: 'none', md: 'block' }} mt={{ base: 4, md: 0 }}>
         {account ? (
           <Button colorScheme="white" variant="outline">
-            {account}
+            {shortenAddress(account)}
           </Button>
         ) : (
           <Button colorScheme="white" variant="outline" disabled>
