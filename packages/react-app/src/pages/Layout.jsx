@@ -13,9 +13,7 @@ export const Layout = ({ children }) => {
 
   return (
     <div>
-      <Header>
-        <div>Hello</div>
-      </Header>
+      <Header />
       <div className={styles.container}>
         <Container>{valid ? children : <ConnectWeb3 />}</Container>
       </div>
