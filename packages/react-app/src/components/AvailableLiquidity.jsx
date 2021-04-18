@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -25,6 +25,7 @@ const AvailableLiquidity = () => {
       const _tableData = [];
 
       for (const network of NETWORKS) {
+        // eslint-disable-next-line no-console
         console.log('network: ', network);
         const chainProvider = new providers.JsonRpcProvider(
           getRpcUrl(network.chainId)
@@ -63,6 +64,7 @@ const AvailableLiquidity = () => {
               : '-',
           };
 
+          // eslint-disable-next-line no-console
           console.log('table row: ', row);
           _tableData.push(row);
         }
