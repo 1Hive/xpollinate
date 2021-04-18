@@ -5,7 +5,10 @@ import { ConnextModal } from '@connext/vector-modal';
 import { Grid, Button, TextField, Select, MenuItem } from '@material-ui/core';
 import getRpcUrl from 'lib/rpc';
 
-const NETWORKS = [
+export const CONNEXT_ROUTER =
+  'vector892GMZ3CuUkpyW8eeXfW2bt5W73TWEXtgV71nphXUXAmpncnj8';
+
+export const NETWORKS = [
   {
     assetId: '0x0000000000000000000000000000000000000000',
     chainName: 'xDai Chain',
@@ -44,7 +47,7 @@ const NETWORKS = [
   // },
 ];
 
-const ASSETS = ['DAI', 'USDC', 'USDT'];
+export const ASSETS = ['DAI', 'USDC', 'USDT'];
 
 const Modal = () => {
   const { web3Provider, account } = useContext(Web3Context);
@@ -231,7 +234,7 @@ const Modal = () => {
       {web3Provider !== 'undefined' ? (
         <ConnextModal
           showModal={showModal}
-          routerPublicIdentifier="vector892GMZ3CuUkpyW8eeXfW2bt5W73TWEXtgV71nphXUXAmpncnj8"
+          routerPublicIdentifier={CONNEXT_ROUTER}
           depositAssetId={senderChain.assets[asset]}
           depositChainId={senderChain.chainId}
           withdrawAssetId={receiverChain.assets[asset]}
