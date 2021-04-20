@@ -1763,12 +1763,12 @@
     pino "6.11.1"
     pino-pretty "4.6.0"
 
-"@connext/vector-modal@1.0.4-beta.5":
-  version "1.0.4-beta.5"
-  resolved "https://registry.yarnpkg.com/@connext/vector-modal/-/vector-modal-1.0.4-beta.5.tgz#746efd106653c402cf5d912e69e469e89bb6ebb2"
-  integrity sha512-6w++lPGP0Jkfexu4ZkiMeC78banlN1AgPG4+CM26oi4zWcm93/n5surV3uQGpN7Wv28HSyflb+qdoMDRR9gZiw==
+"@connext/vector-modal@1.0.4-beta.6":
+  version "1.0.4-beta.6"
+  resolved "https://registry.yarnpkg.com/@connext/vector-modal/-/vector-modal-1.0.4-beta.6.tgz#c7ce6b4590aa8b69446f9e899a4a8f52193a5838"
+  integrity sha512-ufkONaMKCb45GJIsREN0j5B4IqCD/sf/pNsnP6f7MVDVh5smaQQ8dfAqPqtXPF1ENq8QnbbGswbB91lQhrRqwQ==
   dependencies:
-    "@connext/vector-sdk" "^0.0.1-beta.7"
+    "@connext/vector-sdk" "^0.0.1-beta.8"
     ethers "^5.1.0"
     hybrids "^5.0.0"
     qrcode.react "^1.0.1"
@@ -1800,10 +1800,10 @@
     pino "6.11.1"
     tty "1.0.1"
 
-"@connext/vector-sdk@^0.0.1-beta.7":
-  version "0.0.1-beta.7"
-  resolved "https://registry.yarnpkg.com/@connext/vector-sdk/-/vector-sdk-0.0.1-beta.7.tgz#8e9ff6da772c0c1c17a04a3451b820af5f47165c"
-  integrity sha512-qURSq2BYc+7YpwgQ5uPuIwMPt8ANLvYb5CUhBTkdp+2ndCfbB3+AZ/C/CwKiAge8oryDbtUQsLWPURP7I3kw1w==
+"@connext/vector-sdk@^0.0.1-beta.8":
+  version "0.0.1-beta.8"
+  resolved "https://registry.yarnpkg.com/@connext/vector-sdk/-/vector-sdk-0.0.1-beta.8.tgz#03fd692445729e9440ae066b6cf54a99d173ec3d"
+  integrity sha512-Jb66Z4g+mLqKMnb0MFGKW4Ga5P52mf3EznPVQo39CSxyZ3uExCsu4p6mz7BMMX8rdqFP6ImFg+a1TcwFoF7lYA==
   dependencies:
     "@connext/vector-browser-node" "0.2.2-beta.8"
     "@connext/vector-contracts" "0.2.2-beta.8"
