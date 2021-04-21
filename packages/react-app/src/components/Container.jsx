@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex, Link } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import { Modal, AvailableLiquidity } from 'components/index';
 
 const Container = () => {
