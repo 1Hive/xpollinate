@@ -104,7 +104,7 @@ const Modal = () => {
                   <MenuItem
                     value={index}
                     key={index}
-                    disabled={receiverChain.chainId === t.chainId || receiverChain.chainId === 56 }
+                    disabled={receiverChain.chainId === t.chainId}
                   >
                     {t.chainName} - {t.assetName}
                   </MenuItem>
@@ -152,7 +152,7 @@ const Modal = () => {
                   <MenuItem
                     value={index}
                     key={index}
-                    disabled={senderChain.chainId === t.chainId || senderChain.chainId === 56}
+                    disabled={senderChain.chainId === t.chainId}
                   >
                     {t.chainName} - {t.assetName}
                   </MenuItem>
