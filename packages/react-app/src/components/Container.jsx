@@ -44,7 +44,7 @@ const Container = () => {
       >
         Binance Smart Chain is under heavy load and we are experiencing issues.
         We have temporarily disabled swaps to and from BSC. Please check the{' '}
-        <Link href="https://discord.com/channels/454734546869551114" isExternal>
+        <Link href="https://discord.gg/AGpyHSbYCe" isExternal>
           Connext Discord
         </Link>{' '}
         for updates.
