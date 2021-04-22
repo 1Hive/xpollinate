@@ -65,7 +65,16 @@ const Header = (props) => {
             {shortenAddress(account)}
           </Button>
         ) : (
-          <Button colorScheme="white" variant="outline" disabled>
+          <Button
+            bgColor="white"
+            borderRadius="1rem"
+            direction="column"
+            align="center"
+            p="0.5rem"
+            m="0.5rem"
+            fontWeight="light"
+            disabled
+          >
             No account found.
           </Button>
         )}
