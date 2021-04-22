@@ -7,6 +7,13 @@ export const theme = {
     global: {
       body: {
         bg: 'linear-gradient(118.5deg, #F2F3FB 13.9%, #F2F3FB 94.36%)',
+        bgImage:
+          // eslint-disable-next-line quotes
+          "url('https://storage.googleapis.com/1hive/xpollinate/bg-pattern.svg')",
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
+        backgroundPosition: 'bottom',
+        backgroundSize: '100%',
       },
     },
   },
