@@ -96,7 +96,9 @@ const AvailableLiquidity = () => {
                   {row.chain}
                 </TableCell>
                 <TableCell align="right">{row.assetName}</TableCell>
-                <TableCell align="right">{parseFloat(row.balance).toFixed(2).toString()}</TableCell>
+                <TableCell align="right">
+                  {parseFloat(row.balance).toFixed(2).toString()}
+                </TableCell>
               </TableRow>
             ))
           )}
