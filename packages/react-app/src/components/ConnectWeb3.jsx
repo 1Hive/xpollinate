@@ -4,7 +4,10 @@ import React, { useContext } from 'react';
 import { Web3Context } from 'contexts/Web3Context';
 
 const styles = {
-  gradient: 'linear-gradient(257.5deg, #EB0055 -39.73%, #FFFA80 107.97%)',
+  'bold-gradient':
+    'linear-gradient(257.5deg, #EB0055 -39.73%, #FFFA80 107.97%)',
+  'light-gradient':
+    'linear-gradient(257.5deg, rgba(235, 0, 85, 0.3) -39.73%, rgba(255, 250, 128, 0.3) 107.97%)',
 };
 
 const ConnectWeb3 = () => {
@@ -12,7 +15,7 @@ const ConnectWeb3 = () => {
 
   return (
     <Flex
-      bgGradient="linear-gradient(257.5deg, rgba(235, 0, 85, 0.3) -39.73%, rgba(255, 250, 128, 0.3) 107.97%)"
+      bgGradient={styles['light-gradient']}
       boxShadow="0px 1rem 2rem rgba(204, 218, 238, 0.8)"
       borderRadius="1rem"
       direction="column"
@@ -37,9 +40,9 @@ const ConnectWeb3 = () => {
           fontWeight="light"
           _focus={{ boxShadow: 'outline' }}
           _hover={{
-            bg: styles.gradient,
+            bg: styles['bold-gradient'],
           }}
-          bgGradient={styles.gradient}
+          bgGradient={styles['bold-gradient']}
           maxW="15rem"
           isLoading={loading}
         >
