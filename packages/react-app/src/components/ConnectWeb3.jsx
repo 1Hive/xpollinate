@@ -26,7 +26,10 @@ const ConnectWeb3 = () => {
       maxW="28.5rem"
       mx={4}
     >
-      <Image src="https://svgshare.com/i/WTH.svg" alt="xPollinate Logo"></Image>
+      <Image
+        src="https://storage.googleapis.com/1hive/xpollinate/logo.svg"
+        alt="xPollinate Logo"
+      ></Image>
       <Text fontWeight="light" m="1rem">
         Please, connect your wallet.
       </Text>

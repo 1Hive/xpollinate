@@ -27,7 +27,7 @@ const Header = (props) => {
       <Flex align="center" mr={5}>
         <Heading as="h1" size="lg" letterSpacing={'-.1rem'}>
           <Image
-            src="https://svgshare.com/i/WVX.svg"
+            src="https://storage.googleapis.com/1hive/xpollinate/logo-text.svg"
             alt="xPollinate Logo"
             w="8rem"
           />
