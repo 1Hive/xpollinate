@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex, Image } from '@chakra-ui/react';
 import { Modal, AvailableLiquidity } from 'components/index';
 
 const Container = () => {
@@ -34,12 +34,18 @@ const Container = () => {
         alignItems="center"
         padding="1rem"
         margin="0.5rem"
-        flexGrow={1}
-        borderWidth="1px"
-        borderRadius="lg"
+        bgColor="white"
+        boxShadow="0px 1rem 2rem rgba(204, 218, 238, 0.8)"
+        borderRadius="1rem"
       >
         <AvailableLiquidity />
       </Box>
+      <Image
+        src="https://storage.googleapis.com/1hive/xpollinate/powered-by.svg"
+        bottom="0"
+        boxSize="15rem"
+        marginTop="calc(5% + 60px)"
+      />
     </Flex>
   );
 };
