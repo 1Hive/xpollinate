@@ -4,6 +4,10 @@ import { Web3Context } from 'contexts/Web3Context';
 import networkName from 'lib/network';
 import { shortenAddress } from 'utils/index';
 
+const styles = {
+  gradient: 'linear-gradient(257.5deg, #EB0055 -39.73%, #FFFA80 107.97%)',
+};
+
 const Header = (props) => {
   const { account, providerChainId } = useContext(Web3Context);
 
@@ -36,7 +40,17 @@ const Header = (props) => {
         padding="0.5rem"
         flexGrow={1}
       ></Box>
-      <Box style={{ margin: '0.5rem' }}>{networkName(providerChainId)}</Box>
+      <Box
+        bgGradient={styles.gradient}
+        boxShadow="0px 1rem 2rem rgba(204, 218, 238, 0.8)"
+        borderRadius="1rem"
+        direction="column"
+        align="center"
+        p="0.5rem"
+        marginRight="0.5rem"
+      >
+        {networkName(providerChainId)}
+      </Box>
       <Box display={{ sm: 'none', md: 'block' }} mt={{ base: 4, md: 0 }}>
         {account ? (
           <Button colorScheme="white" variant="outline">
