@@ -2,7 +2,8 @@
 import React, { useState, useContext } from 'react';
 import { Web3Context } from 'contexts/Web3Context';
 import { ConnextModal } from '@connext/vector-modal';
-import { Grid, Button, TextField, Select, MenuItem } from '@material-ui/core';
+import { Grid, TextField, Select, MenuItem } from '@material-ui/core';
+import { Button } from '@chakra-ui/react';
 import getRpcUrl from 'lib/rpc';
 
 export const CONNEXT_ROUTER =
@@ -208,10 +209,13 @@ const Modal = () => {
       <Grid container spacing={2} style={{ justifyContent: 'center' }}>
         <Grid item style={{ marginTop: 16 }}>
           <Button
-            variant="contained"
-            color="primary"
-            type="submit"
-            disabled={!withdrawalAddress || !senderChain || !receiverChain}
+            isDisabled={!withdrawalAddress || !senderChain || !receiverChain}
+            bgGradient="linear-gradient(257.5deg, #EB0055 -39.73%, #FFFA80 107.97%)"
+            _focus={{ boxShadow: 'outline' }}
+            _hover={{
+              bg: 'linear-gradient(257.5deg, #EB0055 -39.73%, #FFFA80 107.97%)',
+            }}
+            fontWeight="light"
             onClick={() => {
               console.log('senderChain: ', senderChain);
               console.log('receiverChain: ', receiverChain);
