@@ -39,21 +39,29 @@ const Header = (props) => {
         alignItems="center"
         padding="0.5rem"
         flexGrow={1}
-      ></Box>
+      />
       <Box
         bgGradient={styles.gradient}
-        boxShadow="0px 1rem 2rem rgba(204, 218, 238, 0.8)"
         borderRadius="1rem"
         direction="column"
         align="center"
         p="0.5rem"
-        marginRight="0.5rem"
+        m="0.5rem"
+        fontWeight="light"
       >
         {networkName(providerChainId)}
       </Box>
-      <Box display={{ sm: 'none', md: 'block' }} mt={{ base: 4, md: 0 }}>
+      <Box>
         {account ? (
-          <Button colorScheme="white" variant="outline">
+          <Button
+            bgColor="white"
+            borderRadius="1rem"
+            direction="column"
+            align="center"
+            p="0.5rem"
+            m="0.5rem"
+            fontWeight="light"
+          >
             {shortenAddress(account)}
           </Button>
         ) : (
