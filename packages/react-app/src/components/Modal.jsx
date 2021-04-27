@@ -2,8 +2,18 @@
 import React, { useState, useContext } from 'react';
 import { Web3Context } from 'contexts/Web3Context';
 import { ConnextModal } from '@connext/vector-modal';
-import { Grid, TextField, Select, MenuItem } from '@material-ui/core';
-import { Button } from '@chakra-ui/react';
+import { ArrowUpDownIcon } from '@chakra-ui/icons';
+import {
+  Button,
+  Grid,
+  Select,
+  GridItem,
+  Input,
+  Text,
+  IconButton,
+  Center,
+  Circle,
+} from '@chakra-ui/react';
 import getRpcUrl from 'lib/rpc';
 
 export const CONNEXT_ROUTER =
@@ -85,8 +95,8 @@ const Modal = () => {
   return (
     <>
       <form onSubmit={handleSubmit} noValidate>
-        <Grid container spacing={2}>
-          <Grid item xs={5}>
+        <Grid templateColumns="repeat(5, 1fr)" gap={4}>
+          <GridItem colSpan={2}>
             <Select
               id="sender-chain"
               open={senderOpen}
@@ -98,41 +108,36 @@ const Modal = () => {
               value={NETWORKS.findIndex(
                 (n) => n.chainId === senderChain.chainId
               )}
+              borderColor="gray.300"
               // component={Select}
             >
               {NETWORKS.map((t, index) => {
                 return (
-                  <MenuItem
+                  <option
                     value={index}
                     key={index}
                     disabled={receiverChain.chainId === t.chainId}
                   >
                     {t.chainName} - {t.assetName}
-                  </MenuItem>
+                  </option>
                 );
               })}
             </Select>
-          </Grid>
-          <Grid item xs={2}>
-            <Grid
-              container
-              direction="column"
-              alignContent="center"
-              alignItems="center"
-              justify="center"
-              size="small"
-            >
-              <Button
-                variant="outlined"
-                style={{ border: 'none' }}
-                onClick={swapChains}
-              >
-                {'<>'}
-              </Button>
-            </Grid>
-          </Grid>
-
-          <Grid item xs={5}>
+          </GridItem>
+          <Center>
+            <IconButton
+              icon={
+                <Circle size="2rem" bg="gray.100">
+                  <ArrowUpDownIcon />
+                </Circle>
+              }
+              variant="ghost"
+              _hover={{ bg: 'white' }}
+              transform="rotate(90deg)"
+              onClick={swapChains}
+            />
+          </Center>
+          <GridItem colStart={4} colEnd={6}>
             <Select
               id="receiver-chain"
               open={receiverOpen}
@@ -146,64 +151,63 @@ const Modal = () => {
               value={NETWORKS.findIndex(
                 (n) => n.chainId === receiverChain.chainId
               )}
+              borderColor="gray.300"
               // component={Select}
             >
               {NETWORKS.map((t, index) => {
                 return (
-                  <MenuItem
+                  <option
                     value={index}
                     key={index}
                     disabled={senderChain.chainId === t.chainId}
                   >
                     {t.chainName} - {t.assetName}
-                  </MenuItem>
+                  </option>
                 );
               })}
             </Select>
-          </Grid>
+          </GridItem>
         </Grid>
-        <Grid
-          container
-          spacing={2}
-          alignItems="center"
-          justify="center"
-          alignContent="center"
-        >
-          <Grid item xs={4}>
-            <Select
-              id="asset"
-              open={assetOpen}
-              onClose={() => setAssetOpen(false)}
-              onOpen={() => setAssetOpen(true)}
-              onChange={(event) => setAsset(ASSETS[event.target.value])}
-              fullWidth
-              defaultValue={1}
-              value={ASSETS.findIndex((a) => a === asset)}
-              // component={Select}
-            >
-              {ASSETS.map((t, index) => {
-                return (
-                  <MenuItem value={index} key={index}>
-                    {t}
-                  </MenuItem>
-                );
-              })}
-            </Select>
-          </Grid>
-        </Grid>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <TextField
+        <Center>
+          <Select
+            id="asset"
+            open={assetOpen}
+            onClose={() => setAssetOpen(false)}
+            onOpen={() => setAssetOpen(true)}
+            onChange={(event) => setAsset(ASSETS[event.target.value])}
+            fullWidth
+            defaultValue={1}
+            value={ASSETS.findIndex((a) => a === asset)}
+            borderColor="gray.300"
+            maxW="8rem"
+            marginTop="1rem"
+            // component={Select}
+          >
+            {ASSETS.map((t, index) => {
+              return (
+                <option value={index} key={index}>
+                  {t}
+                </option>
+              );
+            })}
+          </Select>
+        </Center>
+        <Grid>
+          <GridItem>
+            <Text mb="8px" fontWeight="light" marginTop="1rem">
+              Receiver Address*
+            </Text>
+            <Input
               label="Receiver Address"
               name="receiverAddress"
               aria-describedby="receiverAddress"
               defaultValue={withdrawalAddress}
-              type="search"
               onChange={handleChange}
+              borderColor="gray.300"
               required
               fullWidth
             />
-          </Grid>
+          </GridItem>
         </Grid>
       </form>
       <Grid container spacing={2} style={{ justifyContent: 'center' }}>
