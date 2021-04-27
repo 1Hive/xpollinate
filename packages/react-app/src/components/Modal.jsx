@@ -194,7 +194,7 @@ const Modal = () => {
         </Center>
         <Grid>
           <GridItem>
-            <Text mb="8px" fontWeight="light" marginTop="1rem">
+            <Text mb="8px" fontWeight="light" marginTop="1rem" color="#6E7191">
               Receiver Address*
             </Text>
             <Input
