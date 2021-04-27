@@ -24,6 +24,7 @@ const Container = () => {
         margin="2rem"
         borderRadius="lg"
         fontWeight="light"
+        bgColor="white"
       >
         This is beta software, use at your own risk.
       </Box>
