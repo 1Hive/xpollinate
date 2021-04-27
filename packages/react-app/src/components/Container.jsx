@@ -9,8 +9,9 @@ const Container = () => {
         width={{ sm: 'full', md: 'auto' }}
         w={[300, 400, 560]}
         alignItems="center"
-        padding="2.5rem"
-        margin="0.5rem"
+        padding="1.5rem"
+        paddingTop="2.5rem"
+        paddingBottom="2.5rem"
         bgColor="white"
         boxShadow="0px 1rem 2rem rgba(204, 218, 238, 0.8)"
         borderRadius="1rem"
@@ -28,7 +29,6 @@ const Container = () => {
       >
         This is beta software, use at your own risk.
       </Box>
-
       <Box
         width={{ sm: 'full', md: 'auto' }}
         w={[300, 400, 560]}
