@@ -211,7 +211,7 @@ const Modal = () => {
             variant="contained"
             color="primary"
             type="submit"
-            disabled={!withdrawalAddress || !senderChain || !receiverChain}
+            disabled={true}
             onClick={() => {
               console.log('senderChain: ', senderChain);
               console.log('receiverChain: ', receiverChain);
@@ -226,7 +226,7 @@ const Modal = () => {
               setShowModal(true);
             }}
           >
-            Cross-Chain Transfer
+            Disabled due to Maintenance
           </Button>
         </Grid>
       </Grid>
