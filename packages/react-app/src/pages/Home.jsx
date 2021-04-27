@@ -4,7 +4,13 @@ import { Container } from 'components/index';
 
 export const Home = (props) => (
   <div>
-    <Text align="center" p="1rem" fontWeight="bold" fontSize="2xl">
+    <Text
+      align="center"
+      p="1rem"
+      fontWeight="thin"
+      fontSize="2xl"
+      fontFamily="sans-serif"
+    >
       Cross-Chain Bridge
     </Text>
     <Container />
