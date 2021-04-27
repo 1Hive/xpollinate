@@ -211,7 +211,7 @@ const Modal = () => {
         </Grid>
       </form>
       <Grid container spacing={2} style={{ justifyContent: 'center' }}>
-        <Grid item style={{ marginTop: 16 }}>
+        <Grid item style={{ marginTop: 24 }}>
           <Button
             isDisabled={!withdrawalAddress || !senderChain || !receiverChain}
             bgGradient="linear-gradient(257.5deg, #EB0055 -39.73%, #FFFA80 107.97%)"
