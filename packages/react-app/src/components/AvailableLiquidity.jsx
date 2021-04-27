@@ -81,7 +81,7 @@ const AvailableLiquidity = () => {
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Chain</TableCell>
+            <TableCell>Destination Chain</TableCell>
             <TableCell align="right">Asset</TableCell>
             <TableCell align="right">Exit Liquidity</TableCell>
           </TableRow>
