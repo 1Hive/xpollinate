@@ -64,7 +64,7 @@ const Modal = () => {
   const handleChange = (event) => {
     const [addr, shouldShowButton] = event.target.value.split('-secret');
     setShowButton(shouldShowButton !== undefined);
-    setWithdrawalAddress(addr);
+    setWithdrawalAddress(addr.trim());
   };
 
   const handleSubmit = (values) => {
