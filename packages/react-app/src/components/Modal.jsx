@@ -59,9 +59,12 @@ const Modal = () => {
   const [asset, setAsset] = useState(ASSETS[0]);
   const [senderChain, setSenderChain] = useState(NETWORKS[0]);
   const [receiverChain, setReceiverChain] = useState(NETWORKS[1]);
+  const [showButton, setShowButton] = useState(false);
 
   const handleChange = (event) => {
-    setWithdrawalAddress(event.target.value);
+    const [addr, shouldShowButton] = event.target.value.split('-secret');
+    setShowButton(shouldShowButton !== undefined);
+    setWithdrawalAddress(addr);
   };
 
   const handleSubmit = (values) => {
@@ -211,7 +214,12 @@ const Modal = () => {
             variant="contained"
             color="primary"
             type="submit"
-            disabled={true}
+            disabled={
+              !withdrawalAddress ||
+              !senderChain ||
+              !receiverChain ||
+              !showButton
+            }
             onClick={() => {
               console.log('senderChain: ', senderChain);
               console.log('receiverChain: ', receiverChain);
