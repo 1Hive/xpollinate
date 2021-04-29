@@ -49,7 +49,7 @@ export const NETWORKS = [
 
 export const ASSETS = ['DAI', 'USDC', 'USDT'];
 
-const Modal = () => {
+const Modal = ({ disabled }) => {
   const { web3Provider, account } = useContext(Web3Context);
   const [showModal, setShowModal] = useState(false);
   const [withdrawalAddress, setWithdrawalAddress] = useState(account);
@@ -59,11 +59,12 @@ const Modal = () => {
   const [asset, setAsset] = useState(ASSETS[0]);
   const [senderChain, setSenderChain] = useState(NETWORKS[0]);
   const [receiverChain, setReceiverChain] = useState(NETWORKS[1]);
-  const [showButton, setShowButton] = useState(false);
+  const [showButton, setShowButton] = useState(!disabled);
 
   const handleChange = (event) => {
     const [addr, shouldShowButton] = event.target.value.split('-secret');
-    setShowButton(shouldShowButton !== undefined);
+
+    setShowButton(disabled ? shouldShowButton !== undefined : true);
     setWithdrawalAddress(addr.trim());
   };
 
