@@ -7,6 +7,6 @@ export default function networkName(id) {
     case 137:
       return 'Matic Network';
     default:
-      return 'Unknown';
+      return 'Unsupported Network';
   }
 }
