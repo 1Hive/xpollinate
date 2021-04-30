@@ -17,7 +17,7 @@ import {
 import getRpcUrl from 'lib/rpc';
 
 export const CONNEXT_ROUTER =
-  'vector892GMZ3CuUkpyW8eeXfW2bt5W73TWEXtgV71nphXUXAmpncnj8';
+  'vector52rjrwRFUkaJai2J4TrngZ6doTUXGZhizHmrZ6J15xVv4YFgFC';
 
 export const NETWORKS = [
   {
@@ -117,11 +117,7 @@ const Modal = ({ disabled }) => {
             >
               {NETWORKS.map((t, index) => {
                 return (
-                  <option
-                    value={index}
-                    key={index}
-                    disabled={receiverChain.chainId === t.chainId}
-                  >
+                  <option value={index} key={index}>
                     {t.chainName} - {t.assetName}
                   </option>
                 );
@@ -160,11 +156,7 @@ const Modal = ({ disabled }) => {
             >
               {NETWORKS.map((t, index) => {
                 return (
-                  <option
-                    value={index}
-                    key={index}
-                    disabled={senderChain.chainId === t.chainId}
-                  >
+                  <option value={index} key={index}>
                     {t.chainName} - {t.assetName}
                   </option>
                 );
@@ -217,7 +209,12 @@ const Modal = ({ disabled }) => {
       <Grid container spacing={2} style={{ justifyContent: 'center' }}>
         <Grid item style={{ marginTop: 24 }}>
           <Button
-            isDisabled={!withdrawalAddress || !senderChain || !receiverChain}
+            isDisabled={
+              !withdrawalAddress ||
+              !senderChain ||
+              !receiverChain ||
+              senderChain.chainId === receiverChain.chainId
+            }
             bgGradient="linear-gradient(257.5deg, #EB0055 -39.73%, #FFFA80 107.97%)"
             _focus={{ boxShadow: 'outline' }}
             _hover={{
@@ -228,7 +225,8 @@ const Modal = ({ disabled }) => {
               !withdrawalAddress ||
               !senderChain ||
               !receiverChain ||
-              !showButton
+              !showButton ||
+              senderChain.chainId === receiverChain.chainId
             }
             onClick={() => {
               console.log('senderChain: ', senderChain);
@@ -244,7 +242,7 @@ const Modal = ({ disabled }) => {
               setShowModal(true);
             }}
           >
-            Disabled due to Maintenance
+            {disabled ? 'Disabled due to Maintenance' : 'SWAP'}
           </Button>
         </Grid>
       </Grid>
