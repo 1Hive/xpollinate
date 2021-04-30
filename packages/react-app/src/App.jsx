@@ -9,8 +9,9 @@ import { theme } from './theme';
 
 export const App = () => {
   return (
-    <ChakraProvider theme={theme}>
-      <CSSReset />
+    // <ChakraProvider theme={theme}>
+    <ChakraProvider>
+      {/* <CSSReset /> */}
       <Web3Provider>
         <Router>
           <Layout>
