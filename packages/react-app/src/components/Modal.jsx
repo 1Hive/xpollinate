@@ -108,7 +108,6 @@ const Modal = ({ disabled }) => {
               onOpen={() => setSenderOpen(true)}
               onChange={(event) => setSenderChain(NETWORKS[event.target.value])}
               fullWidth
-              defaultValue={0}
               value={NETWORKS.findIndex(
                 (n) => n.chainId === senderChain.chainId
               )}
@@ -147,7 +146,6 @@ const Modal = ({ disabled }) => {
                 setReceiverChain(NETWORKS[event.target.value])
               }
               fullWidth
-              defaultValue={1}
               value={NETWORKS.findIndex(
                 (n) => n.chainId === receiverChain.chainId
               )}
