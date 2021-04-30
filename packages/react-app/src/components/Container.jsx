@@ -51,9 +51,10 @@ const Container = () => {
         padding="1rem"
         margin="0.5rem"
         flexGrow={1}
-        borderWidth="1px"
-        borderRadius="lg"
         bg="green.100"
+        bgColor="green.100"
+        boxShadow="0px 1rem 2rem rgba(204, 218, 238, 0.8)"
+        borderRadius="1rem"
       >
         Bridge Re-enabled in: {countDown}
       </Box>
