@@ -27,7 +27,7 @@ const Container = () => {
         fontWeight="light"
         bgColor="white"
       >
-        This is beta software, use at your own risk.
+        We are experiencing some issues with the bridge, we will be back soon.
       </Box>
       <Box
         width={{ sm: 'full', md: 'auto' }}

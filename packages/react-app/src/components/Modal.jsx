@@ -234,7 +234,7 @@ const Modal = () => {
               setShowModal(true);
             }}
           >
-            Cross-Chain Transfer
+            Disabled due to Maintenance
           </Button>
         </Grid>
       </Grid>
