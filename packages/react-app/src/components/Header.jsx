@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Box, Heading, Flex, Button, Image } from '@chakra-ui/react';
+import { Box, Flex, Button, Image } from '@chakra-ui/react';
 import { Web3Context } from 'contexts/Web3Context';
 import networkName from 'lib/network';
 import { shortenAddress } from 'utils/index';
@@ -15,24 +15,21 @@ const Header = (props) => {
     <Flex
       as="nav"
       align="center"
-      justify="space-between"
       wrap="wrap"
-      padding="1rem"
+      w="100%"
+      mb={'1rem'}
+      p={'1rem'}
       bg="transparent"
-      border="1px"
+      direction={['column', 'row', 'row', 'row']}
+      justify={['center', 'space-between', 'flex-end', 'flex-end']}
+      borderBottom="1px"
       borderColor="gray.500"
-      m="0 auto"
-      {...props}
     >
-      <Flex align="center" mr={5}>
-        <Heading as="h1" size="lg" letterSpacing={'-.1rem'}>
-          <Image
-            src="https://storage.googleapis.com/1hive/xpollinate/logo-text.svg"
-            alt="xPollinate Logo"
-            w="8rem"
-          />
-        </Heading>
-      </Flex>
+      <Image
+        src="https://storage.googleapis.com/1hive/xpollinate/logo-text.svg"
+        alt="xPollinate Logo"
+        w="8rem"
+      />
       <Box
         display={{ sm: 'none', md: 'flex' }}
         width={{ sm: 'full', md: 'auto' }}
