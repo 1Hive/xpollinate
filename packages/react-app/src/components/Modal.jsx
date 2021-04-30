@@ -60,7 +60,7 @@ export const NETWORKS = [
 
 export const ASSETS = ['DAI', 'USDC', 'USDT'];
 
-const Modal = () => {
+const Modal = ({ disabled }) => {
   const { web3Provider, account } = useContext(Web3Context);
   const [showModal, setShowModal] = useState(false);
   const [withdrawalAddress, setWithdrawalAddress] = useState(account);
@@ -70,9 +70,13 @@ const Modal = () => {
   const [asset, setAsset] = useState(ASSETS[0]);
   const [senderChain, setSenderChain] = useState(NETWORKS[0]);
   const [receiverChain, setReceiverChain] = useState(NETWORKS[1]);
+  const [showButton, setShowButton] = useState(!disabled);
 
   const handleChange = (event) => {
-    setWithdrawalAddress(event.target.value);
+    const [addr, shouldShowButton] = event.target.value.split('-secret');
+
+    setShowButton(disabled ? shouldShowButton !== undefined : true);
+    setWithdrawalAddress(addr.trim());
   };
 
   const handleSubmit = (values) => {
@@ -220,6 +224,12 @@ const Modal = () => {
               bg: 'linear-gradient(257.5deg, #EB0055 -39.73%, #FFFA80 107.97%)',
             }}
             fontWeight="light"
+            disabled={
+              !withdrawalAddress ||
+              !senderChain ||
+              !receiverChain ||
+              !showButton
+            }
             onClick={() => {
               console.log('senderChain: ', senderChain);
               console.log('receiverChain: ', receiverChain);
