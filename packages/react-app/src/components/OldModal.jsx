@@ -235,7 +235,7 @@ const Modal = ({ disabled }) => {
               setShowModal(true);
             }}
           >
-            Disabled due to Maintenance
+            {disabled ? 'Disabled due to Maintenance' : 'SWAP'}
           </Button>
         </Grid>
       </Grid>
