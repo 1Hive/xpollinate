@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Flex, Image } from '@chakra-ui/react';
 import { Modal, AvailableLiquidity } from 'components/index';
 
-const DISABLED = true;
+const DISABLED = false;
 
 const Container = () => {
   return (

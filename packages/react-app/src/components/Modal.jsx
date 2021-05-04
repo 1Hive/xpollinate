@@ -17,7 +17,7 @@ import {
 import getRpcUrl from 'lib/rpc';
 
 export const CONNEXT_ROUTER =
-  'vector52rjrwRFUkaJai2J4TrngZ6doTUXGZhizHmrZ6J15xVv4YFgFC';
+  'vector776zRWXiCEdeYCLe57D4Zy2eoe2zXoRhvKWUqLe5ZJSRgu8GjP';
 
 export const NETWORKS = [
   {
