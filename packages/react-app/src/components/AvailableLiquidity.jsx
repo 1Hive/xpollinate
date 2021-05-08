@@ -13,12 +13,14 @@ import getRpcUrl from '../lib/rpc';
 import networkName from '../lib/network';
 import { NETWORKS, CONNEXT_ROUTER } from './Modal';
 
+const UPDATE_INTERVAL = 5000;
+
 const AvailableLiquidity = () => {
   const [tableData, setTableData] = useState([]);
   const [loadingData, setLoadingData] = useState(true);
 
   useEffect(() => {
-    const effect = async () => {
+    const effect = setInterval(async () => {
       const signerAddress = getSignerAddressFromPublicIdentifier(
         CONNEXT_ROUTER
       );
@@ -72,9 +74,9 @@ const AvailableLiquidity = () => {
 
       setTableData(_tableData);
       setLoadingData(false);
-    };
+    }, UPDATE_INTERVAL);
 
-    effect();
+    return () => clearInterval(effect);
   }, [tableData]);
   return (
     <TableContainer>
