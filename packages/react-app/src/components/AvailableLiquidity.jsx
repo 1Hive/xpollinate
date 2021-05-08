@@ -75,7 +75,7 @@ const AvailableLiquidity = () => {
     };
 
     effect();
-  }, []);
+  }, [tableData]);
   return (
     <TableContainer>
       <Table>
