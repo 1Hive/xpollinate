@@ -48,7 +48,7 @@ const Container = () => {
       <Image
         src="https://storage.googleapis.com/1hive/xpollinate/powered-by.svg"
         bottom="0"
-        boxSize="15rem"
+        h="2rem"
         marginTop="calc(5% + 60px)"
       />
     </Flex>
