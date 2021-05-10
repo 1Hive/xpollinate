@@ -7,7 +7,7 @@ export default function getRpcUrl(networkId) {
     case 128:
       return 'https://http-mainnet.hecochain.com';
     case 137:
-      return 'https://ancient-lively-sky.matic.quiknode.pro/05cf5df0b0658d5cb3ab576ec4aefefc3731e0c5/';
+      return 'https://rpc-connext-mainnet.maticvigil.com/v1/7d850b583693ed94dcf7e6f7088cf0bac4289e0d';
     default:
       throw new Error('No RPC configured for network: ', networkId);
   }
