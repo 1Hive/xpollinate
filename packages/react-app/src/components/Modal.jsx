@@ -64,6 +64,7 @@ const Modal = ({ disabled }) => {
   const { web3Provider, account } = useContext(Web3Context);
   const [showModal, setShowModal] = useState(false);
   const [withdrawalAddress, setWithdrawalAddress] = useState(account);
+  const [helperText, setHelperText] = useState(undefined);
   const [senderOpen, setSenderOpen] = useState(false);
   const [receiverOpen, setReceiverOpen] = useState(false);
   const [assetOpen, setAssetOpen] = useState(false);
@@ -72,8 +73,21 @@ const Modal = ({ disabled }) => {
   const [receiverChain, setReceiverChain] = useState(NETWORKS[1]);
   const [showButton, setShowButton] = useState(!disabled);
 
+  const isValidAddress = (input) => {
+    const valid = input.match(/0x[0-9a-fA-F]{40}/);
+    return !!valid;
+  };
+
   const handleChange = (event) => {
     const [addr, shouldShowButton] = event.target.value.split('-secret');
+
+    if (!isValidAddress(addr.trim())) {
+      setHelperText('Must be an Ethereum address');
+      setShowButton(false);
+      return;
+    } else {
+      setHelperText(undefined);
+    }
 
     setShowButton(disabled ? shouldShowButton !== undefined : true);
     setWithdrawalAddress(addr.trim());
@@ -204,6 +218,17 @@ const Modal = ({ disabled }) => {
           </GridItem>
         </Grid>
       </form>
+
+      {helperText && (
+        <Grid>
+          <GridItem>
+            <Text id="helper-text" color="crimson" isTruncated>
+              {helperText}
+            </Text>
+          </GridItem>
+        </Grid>
+      )}
+
       <Grid container spacing={2} style={{ justifyContent: 'center' }}>
         <Grid item style={{ marginTop: 24 }}>
           <Button
