@@ -1,9 +1,9 @@
 export default function getRpcUrl(networkId) {
   switch (networkId) {
     case 56:
-      return 'https://bsc-dataseed1.ninicoin.io/';
+      return 'https://bsc-dataseed2.binance.org/';
     case 100:
-      return 'https://quiet-empty-darkness.xdai.quiknode.pro/fb90655e4776074c95611ccb25409f2c1495b427/';
+      return 'https://xdai.poanetwork.dev';
     case 128:
       return 'https://http-mainnet.hecochain.com';
     case 137:
