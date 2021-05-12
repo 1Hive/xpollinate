@@ -31,7 +31,7 @@ const Container = () => {
       >
         {DISABLED
           ? 'We are experiencing some issues with the bridge, we will be back soon.'
-          : 'This is beta software! Use at your own risk.'}
+          : 'BSC down for maintenance. This is beta software! Use at your own risk.'}
       </Box>
       <Box
         width={{ sm: 'full', md: 'auto' }}
