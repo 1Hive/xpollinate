@@ -50,12 +50,6 @@ export const NETWORKS = [
       USDT: '0x55d398326f99059fF775485246999027B3197955',
     },
   },
-  // {
-  //   assetId: '0x0298c2b32eaE4da002a15f36fdf7615BEa3DA047',
-  //   chainName: 'Huobi ECO Chain Mainnet',
-  //   chainId: 128,
-  //   assetName: 'HUSD',
-  // },
 ];
 
 export const ASSETS = ['DAI', 'USDC', 'USDT'];
