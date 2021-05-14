@@ -53,7 +53,7 @@ export const NETWORKS = [
   {
     assetId: '0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3',
     chainName: 'Fantom Mainnet',
-    chainId: 56,
+    chainId: 250,
     assets: {
       DAI: '0x8d11ec38a3eb5e956b052f67da8bdc9bef8abf3e',
       USDC: '0x04068da6c83afcfa0e13ba15a6696662335d5b75',
