@@ -7,7 +7,7 @@ export default function getRpcUrl(networkId) {
     case 128:
       return 'https://http-mainnet.hecochain.com';
     case 137:
-      return 'https://polygon-mainnet.infura.io/v3/e02a34c8aa5d4156aeed1142ea2173c8';
+      return 'https://ancient-lively-sky.matic.quiknode.pro/05cf5df0b0658d5cb3ab576ec4aefefc3731e0c5/';
     default:
       throw new Error('No RPC configured for network: ', networkId);
   }
