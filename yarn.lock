@@ -1598,10 +1598,10 @@
     pino "6.11.1"
     pino-pretty "4.6.0"
 
-"@connext/vector-modal@^1.0.5-beta.6":
-  version "1.0.5-beta.6"
-  resolved "https://registry.yarnpkg.com/@connext/vector-modal/-/vector-modal-1.0.5-beta.6.tgz#3ef098d6679d01e4e5bd706b8b8284b85e14565c"
-  integrity sha512-2G/zSepJgXq9JO7ry9a6KKlrt1Za1gnhHkEzzjxGo1Ll757Dtqg1CN3kK+ZLEzm3dKQb0MH8TKKUJR1G8FW3Jw==
+"@connext/vector-modal@^1.0.5-beta.7":
+  version "1.0.5-beta.7"
+  resolved "https://registry.yarnpkg.com/@connext/vector-modal/-/vector-modal-1.0.5-beta.7.tgz#c8500590888d78b9f9578782129aa2acb59872f7"
+  integrity sha512-vQw/Lrchy9FoHzKdkN2Mn48OGpBp0rqTJPswP967HBJ9+kgnGUcaE9ovizdh7mWFZ9Ik9FdBES7n/RpNMeopZw==
   dependencies:
     "@connext/vector-sdk" "^0.0.2-beta.5"
     "@ethersproject/address" "5.1.0"
