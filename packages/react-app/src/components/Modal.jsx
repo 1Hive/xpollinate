@@ -8,8 +8,6 @@ import {
   Grid,
   Select,
   GridItem,
-  Input,
-  Text,
   IconButton,
   Center,
   Circle,
@@ -57,36 +55,41 @@ export const ASSETS = ['DAI', 'USDC', 'USDT'];
 const Modal = ({ disabled }) => {
   const { web3Provider, account } = useContext(Web3Context);
   const [showModal, setShowModal] = useState(false);
-  const [withdrawalAddress, setWithdrawalAddress] = useState(account);
-  const [helperText, setHelperText] = useState(undefined);
+  // const [withdrawalAddress, setWithdrawalAddress] = useState(account);
+  // const [helperText, setHelperText] = useState(undefined);
+  const withdrawalAddress = account;
+
   const [senderOpen, setSenderOpen] = useState(false);
   const [receiverOpen, setReceiverOpen] = useState(false);
   const [assetOpen, setAssetOpen] = useState(false);
   const [asset, setAsset] = useState(ASSETS[0]);
   const [senderChain, setSenderChain] = useState(NETWORKS[0]);
   const [receiverChain, setReceiverChain] = useState(NETWORKS[1]);
-  const [showButton, setShowButton] = useState(!disabled);
 
-  const isValidAddress = (input) => {
-    const valid = input.match(/0x[0-9a-fA-F]{40}/);
+  // Switch to disable button
+  // const [showButton, setShowButton] = useState(!disabled);
+  const showButton = !disabled;
 
-    return !!valid;
-  };
+  // const isValidAddress = (input) => {
+  //   const valid = input.match(/0x[0-9a-fA-F]{40}/);
 
-  const handleChange = (event) => {
-    const [addr, shouldShowButton] = event.target.value.split('-secret');
+  //   return !!valid;
+  // };
 
-    if (!isValidAddress(addr.trim())) {
-      setHelperText('Must be an Ethereum address');
-      setShowButton(false);
-      return;
-    } else {
-      setHelperText(undefined);
-    }
+  // const handleChange = (event) => {
+  //   const [addr, shouldShowButton] = event.target.value.split('-secret');
 
-    setShowButton(disabled ? shouldShowButton !== undefined : true);
-    setWithdrawalAddress(addr.trim());
-  };
+  //   if (!isValidAddress(addr.trim())) {
+  //     setHelperText('Must be an Ethereum address');
+  //     setShowButton(false);
+  //     return;
+  //   } else {
+  //     setHelperText(undefined);
+  //   }
+
+  //   setShowButton(disabled ? shouldShowButton !== undefined : true);
+  //   setWithdrawalAddress(addr.trim());
+  // };
 
   const handleSubmit = (values) => {
     const errors = { receiverAddress: '' };
@@ -195,7 +198,7 @@ const Modal = ({ disabled }) => {
             })}
           </Select>
         </Center>
-        <Grid>
+        {/* <Grid>
           <GridItem>
             <Text mb="8px" fontWeight="light" marginTop="1rem" color="#6E7191">
               Receiver Address*
@@ -211,10 +214,10 @@ const Modal = ({ disabled }) => {
               fullWidth
             />
           </GridItem>
-        </Grid>
+        </Grid> */}
       </form>
 
-      {helperText && (
+      {/* {helperText && (
         <Grid>
           <GridItem>
             <Text id="helper-text" color="crimson" isTruncated>
@@ -222,7 +225,7 @@ const Modal = ({ disabled }) => {
             </Text>
           </GridItem>
         </Grid>
-      )}
+      )} */}
 
       <Grid container spacing={2} style={{ justifyContent: 'center' }}>
         <Grid item style={{ marginTop: 24 }}>
