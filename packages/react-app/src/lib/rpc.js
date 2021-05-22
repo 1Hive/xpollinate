@@ -7,7 +7,7 @@ export default function getRpcUrl(networkId) {
     case 128:
       return 'https://http-mainnet.hecochain.com/';
     case 137:
-      return 'https://matic-mainnet.chainstacklabs.com/';
+      return 'https://rpc-mainnet.maticvigil.com';
     case 250:
       return 'https://rpcapi.fantom.network/';
     default:
