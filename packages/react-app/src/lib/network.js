@@ -6,6 +6,8 @@ export default function networkName(id) {
       return 'xDai Network';
     case 137:
       return 'Matic Network';
+    case 250:
+      return 'Fantom Opera';
     default:
       return 'Unsupported Network';
   }
