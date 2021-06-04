@@ -1629,11 +1629,12 @@
     pino "6.11.1"
     pino-pretty "4.6.0"
 
-"@connext/vector-modal@^1.0.6-beta.3":
-  version "1.0.6-beta.3"
-  resolved "https://registry.yarnpkg.com/@connext/vector-modal/-/vector-modal-1.0.6-beta.3.tgz#cd2747fe2593fb5e99e8ae16d56d724ccec764df"
+"@connext/vector-modal@^1.0.6-beta.4":
+  version "1.0.6-beta.4"
+  resolved "https://registry.yarnpkg.com/@connext/vector-modal/-/vector-modal-1.0.6-beta.4.tgz#a0ea9989b06f6e0d118039ad4f5b741c5ae2d1ce"
+  integrity sha512-bCGfq8Dg7F51Qh/HQ3y9bwcmIUJERvAWiF76ud+fVumqa2qH3mfueU7tDcVmP5PmR61nSNR8BlbPJ/RNJrL51g==
   dependencies:
-    "@connext/vector-sdk" "^0.0.3-beta.3"
+    "@connext/vector-sdk" "^0.0.3-beta.4"
     "@ethersproject/address" "5.2.0"
     "@ethersproject/bignumber" "5.2.0"
     "@ethersproject/constants" "5.2.0"
@@ -1668,9 +1669,10 @@
     pino "6.11.1"
     tty "1.0.1"
 
-"@connext/vector-sdk@^0.0.3-beta.3":
-  version "0.0.3-beta.3"
-  resolved "https://registry.yarnpkg.com/@connext/vector-sdk/-/vector-sdk-0.0.3-beta.3.tgz#41d9bbafccb65822b725cac7a920fefb6195eec8"
+"@connext/vector-sdk@^0.0.3-beta.4":
+  version "0.0.3-beta.4"
+  resolved "https://registry.yarnpkg.com/@connext/vector-sdk/-/vector-sdk-0.0.3-beta.4.tgz#afdb2c1df23149ad60300dec9701f5690bcaacf6"
+  integrity sha512-WxbeP8q3VOHHZ3HPeaLxoyOt4KJSpIDXlVJ6iqZ6lFrHGDutLie94eQWJWK3miIqvLMx2tyz5Ci0OSV3AgBp9g==
   dependencies:
     "@connext/vector-browser-node" "0.2.5-beta.18"
     "@connext/vector-contracts" "0.2.5-beta.18"
