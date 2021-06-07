@@ -48,14 +48,14 @@ const Container = () => {
       
       <div style={{display:"flex"}}>
       <Image
-        src={require("../assets/poweredby.png")}
+        src={require("../assets/poweredby.svg")}
         bottom="0"
         h="2rem"
         marginTop="calc(2% + 60px)"
       />  
      <a href="https://connext.network/">
       <Image
-        src={require("../assets/connext.png")}
+        src={require("../assets/connext.svg")}
         bottom="0"
         h="2rem"
         marginTop="calc(5% + 60px)"
@@ -64,7 +64,7 @@ const Container = () => {
       <h3 style={{marginTop:"calc(5% + 52px)", marginLeft:"15px"}}>x</h3>
       <a href="https://1hive.org">
       <Image
-        src={require("../assets/1hive.png")}
+        src={require("../assets/1hive.svg")}
         bottom="0"
         h="2rem"
         marginTop="calc(5% + 60px)"
