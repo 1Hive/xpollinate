@@ -51,22 +51,22 @@ const Container = () => {
         src={require("../assets/poweredby.svg")}
         bottom="0"
         h="2rem"
-        marginTop="calc(2% + 60px)"
+        marginTop="calc(3% + 60px)"
       />  
      <a href="https://connext.network/">
       <Image
         src={require("../assets/connext.svg")}
         bottom="0"
-        h="2rem"
+        h="3rem"
         marginTop="calc(5% + 60px)"
       />
       </a>
-      <h3 style={{marginTop:"calc(5% + 52px)", marginLeft:"15px"}}>x</h3>
+      <h3 style={{marginTop:"calc(7% + 52px)", marginLeft:"15px"}}>x</h3>
       <a href="https://1hive.org">
       <Image
         src={require("../assets/1hive.svg")}
         bottom="0"
-        h="2rem"
+        h="3rem"
         marginTop="calc(5% + 60px)"
         marginLeft="15px"
       />
