@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Web3Context } from 'contexts/Web3Context';
 import { ConnextModal } from '@connext/vector-modal';
 import { ArrowUpDownIcon } from '@chakra-ui/icons';
@@ -14,6 +14,7 @@ import {
   Center,
   Circle,
 } from '@chakra-ui/react';
+import { useHistory, useLocation } from 'react-router-dom';
 import getRpcUrl from 'lib/rpc';
 
 export const CONNEXT_ROUTER =
@@ -64,7 +65,21 @@ export const NETWORKS = [
 
 export const ASSETS = ['DAI', 'USDC', 'USDT'];
 
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
+
+function getQueryParams(query) {
+  return {
+    senderChainId: Number(query.get('senderChainId')),
+    receiverChainId: Number(query.get('receiverChainId')),
+    _asset: query.get('asset'),
+  };
+}
+
 const Modal = ({ disabled }) => {
+  const history = useHistory();
+  const { senderChainId, receiverChainId, _asset } = getQueryParams(useQuery());
   const { web3Provider, account } = useContext(Web3Context);
   const [showModal, setShowModal] = useState(false);
   const [withdrawalAddress, setWithdrawalAddress] = useState(account);
@@ -72,10 +87,26 @@ const Modal = ({ disabled }) => {
   const [senderOpen, setSenderOpen] = useState(false);
   const [receiverOpen, setReceiverOpen] = useState(false);
   const [assetOpen, setAssetOpen] = useState(false);
-  const [asset, setAsset] = useState(ASSETS[0]);
-  const [senderChain, setSenderChain] = useState(NETWORKS[0]);
-  const [receiverChain, setReceiverChain] = useState(NETWORKS[1]);
+  const [asset, setAsset] = useState(
+    _asset && ASSETS.indexOf(_asset.toUpperCase()) >= 0
+      ? _asset.toUpperCase()
+      : ASSETS[0]
+  );
+  const [senderChain, setSenderChain] = useState(
+    (senderChainId && NETWORKS.find((n) => n.chainId === senderChainId)) ||
+      NETWORKS[0]
+  );
+  const [receiverChain, setReceiverChain] = useState(
+    (receiverChainId && NETWORKS.find((n) => n.chainId === receiverChainId)) ||
+      NETWORKS[1]
+  );
   const [showButton, setShowButton] = useState(!disabled);
+
+  useEffect(() => {
+    history.push({
+      search: `?asset=${asset}&senderChainId=${senderChain.chainId}&receiverChainId=${receiverChain.chainId}`,
+    });
+  }, [asset, senderChain, receiverChain, history]);
 
   const isValidAddress = (input) => {
     const valid = input.match(/0x[0-9a-fA-F]{40}/);
