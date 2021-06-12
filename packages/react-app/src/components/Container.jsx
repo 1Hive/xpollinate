@@ -1,10 +1,11 @@
 import React from 'react';
-import { Box, Flex, Image } from '@chakra-ui/react';
 import { Modal, AvailableLiquidity } from 'components/index';
+import { useMediaQuery, Box, Flex, Image } from '@chakra-ui/react';
 
 const DISABLED = false;
 
 const Container = () => {
+  const [isLargerThan1280] = useMediaQuery("(min-width: 1280px)")
   return (
     <Flex align="center" direction="column">
       <Box
@@ -45,32 +46,34 @@ const Container = () => {
       >
         <AvailableLiquidity />
       </Box>
-      
-      <div style={{display:"flex"}}>
-      <Image
-        src={require("../assets/poweredby.svg")}
-        bottom="0"
-        h="2rem"
-        marginTop="calc(3% + 60px)"
-      />  
-     <a href="https://connext.network/">
-      <Image
-        src={require("../assets/connext.svg")}
-        bottom="0"
-        h="3rem"
-        marginTop="calc(5% + 60px)"
-      />
-      </a>
-      <h3 style={{marginTop:"calc(7% + 52px)", marginLeft:"15px"}}>x</h3>
-      <a href="https://1hive.org">
-      <Image
-        src={require("../assets/1hive.svg")}
-        bottom="0"
-        h="3rem"
-        marginTop="calc(5% + 60px)"
-        marginLeft="15px"
-      />
-      </a>
+      <div style={{
+        display: "flex",
+       flexDirection: isLargerThan1280 ? "row" : "column",
+        marginTop: "calc(5% + 60px)",
+       alignItems: "center",
+        justifyContent: "center"
+      }}>
+        <Image
+          src={require("../assets/poweredby.svg")}
+          bottom="0"
+         h="2rem"
+       />
+        <a href="https://connext.network/">
+         <Image
+           src={require("../assets/connext.svg")}
+           bottom="0"
+           h="3rem"
+         />
+       </a>
+       <h3 style={{marginLeft: "15px"}}>x</h3>
+       <a href="https://1hive.org">
+         <Image
+           src={require("../assets/1hive.svg")}
+           bottom="0"
+           h="3rem"
+           
+          />
+       </a>
       </div>
     </Flex>
   );
