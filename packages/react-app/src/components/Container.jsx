@@ -56,22 +56,32 @@ const Container = () => {
         <Image
           src={require("../assets/poweredby.svg")}
           bottom="0"
-         h="2rem"
+         height="1.3rem"
+         width="10.5rem"
+         marginLeft= {isLargerThan1280 ? "0rem" : "0.6rem"}
+         marginTop= {isLargerThan1280 ? "0.2rem" : "0rem"}
+
        />
         <a href="https://connext.network/">
          <Image
-           src={require("../assets/connext.svg")}
+           src={require("../assets/Connext.svg")}
            bottom="0"
-           h="3rem"
+           height="2.5rem"
+           width="10rem"
+           marginRight= {isLargerThan1280 ? "0.2rem" : "0rem"}
+
          />
        </a>
-       <h3 style={{marginLeft: "15px"}}>x</h3>
+       <h2 style={{marginLeft: "15px"}}>x</h2>
        <a href="https://1hive.org">
          <Image
-           src={require("../assets/1hive.svg")}
+           src={require("../assets/1Hive.svg")}
            bottom="0"
-           h="3rem"
-           
+           height="2.5rem"
+           width="7.6rem"
+           marginLeft= {isLargerThan1280 ? "1.5rem" : "0rem"}
+           marginBottom={isLargerThan1280 ? "0.5rem" : "0rem"}
+
           />
        </a>
       </div>
