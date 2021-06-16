@@ -5,7 +5,8 @@ import { useMediaQuery, Box, Flex, Image } from '@chakra-ui/react';
 const DISABLED = false;
 
 const Container = () => {
-  const [isLargerThan1280] = useMediaQuery("(min-width: 1280px)")
+  const [isLargerThan1280] = useMediaQuery('(min-width: 1280px)');
+
   return (
     <Flex align="center" direction="column">
       <Box
@@ -46,36 +47,38 @@ const Container = () => {
       >
         <AvailableLiquidity />
       </Box>
-      <div style={{
-        display: "flex",
-       flexDirection: isLargerThan1280 ? "row" : "column",
-        marginTop: "calc(5% + 60px)",
-       alignItems: "center",
-        justifyContent: "center"
-      }}>
-         <Image
-          src={require("../assets/poweredby.svg")}
-         height="1.3rem"
-          marginRight={isLargerThan1280 ? "0.5rem" : "0rem"}
-         marginLeft={isLargerThan1280 ? "0rem" : "0.6rem"}
-         marginTop= {isLargerThan1280 ? "0.2rem" : "0rem"}
-       />
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: isLargerThan1280 ? 'row' : 'column',
+          marginTop: 'calc(5% + 60px)',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Image
+          src={require('../assets/poweredby.svg')}
+          height="1.3rem"
+          marginRight={isLargerThan1280 ? '0.5rem' : '0rem'}
+          marginLeft={isLargerThan1280 ? '0rem' : '0.6rem'}
+          marginTop={isLargerThan1280 ? '0.2rem' : '0rem'}
+        />
         <a href="https://connext.network/">
-         <Image
-           src={require("../assets/connext.svg")}
-           height="2.5rem"
-           marginRight={isLargerThan1280 ? "0.2rem" : "0rem"}
-         />
-       </a>
-       <h2 style={{marginLeft: "15px"}}>x</h2>
-       <a href="https://1hive.org">
-         <Image
-           src={require("../assets/1hive.svg")}
-           height="2rem"
-           marginBottom="0.5rem"
-           marginLeft={isLargerThan1280 ? "1.5rem" : "0rem"}
+          <Image
+            src={require('../assets/connext.svg')}
+            height="2.5rem"
+            marginRight={isLargerThan1280 ? '0.2rem' : '0rem'}
           />
-       </a>
+        </a>
+        <h2 style={{ marginLeft: '15px' }}>x</h2>
+        <a href="https://1hive.org">
+          <Image
+            src={require('../assets/1hive.svg')}
+            height="2rem"
+            marginBottom="0.5rem"
+            marginLeft={isLargerThan1280 ? '1.5rem' : '0rem'}
+          />
+        </a>
       </div>
     </Flex>
   );
