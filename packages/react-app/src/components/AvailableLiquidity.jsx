@@ -19,9 +19,8 @@ const AvailableLiquidity = () => {
 
   useEffect(() => {
     const effect = async () => {
-      const signerAddress = getSignerAddressFromPublicIdentifier(
-        CONNEXT_ROUTER
-      );
+      const signerAddress =
+        getSignerAddressFromPublicIdentifier(CONNEXT_ROUTER);
       const _tableData = [];
 
       for (const network of NETWORKS) {
