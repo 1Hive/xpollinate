@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create Eth App](https://github.com/paulrberg/create-eth-app).
 
+## XPollinate
+
+XPollinate is a cross-chain bridge, it allows users to connect their web3 wallets and swap assets between different networks, such as xDai Chain, Matic Mainnet, Fantom Mainnet and Binance Smart Chain Mainnet.
+
 ## Project Structure
 
 The default template is a monorepo created with [Yarn Workspaces](https://classic.yarnpkg.com/en/docs/workspaces/).
@@ -62,7 +66,9 @@ Owing to this dependency on Yarn Workspaces, Create Eth App can't be used with n
 
 In the project directory, you can run:
 
-### React App
+#### `yarn`
+
+Installs dependencies
 
 #### `yarn react-app:start`
 
