@@ -1,7 +1,7 @@
 
 ## XPollinate
 
-XPollinate is a cross-chain bridge, it allows users to connect their web3 wallets and swap assets between different networks, such as xDai Chain, Matic Mainnet, Fantom Mainnet and Binance Smart Chain Mainnet.
+XPollinate is a cross-chain bridge that allows users to connect their Web3 wallets and swap assets between different networks, such as xDai Chain, Matic Mainnet, Fantom Mainnet and Binance Smart Chain Mainnet.
 
 ## Project Structure
 
