@@ -1,4 +1,7 @@
-This project was bootstrapped with [Create Eth App](https://github.com/paulrberg/create-eth-app).
+
+## XPollinate
+
+XPollinate is a cross-chain bridge that allows users to connect their Web3 wallets and swap assets between different networks, such as xDai Chain, Matic Mainnet, Fantom Mainnet and Binance Smart Chain Mainnet.
 
 ## Project Structure
 
@@ -24,36 +27,26 @@ my-eth-app
     │       ├── addresses.js
     │       └── index.js
     ├── react-app
-    │   ├── README.md
-    │   ├── node_modules
-    │   ├── package.json
-    │   ├── public
-    │   │   ├── favicon.ico
-    │   │   ├── index.html
-    │   │   ├── logo192.png
-    │   │   ├── logo512.png
-    │   │   ├── manifest.json
-    │   │   └── robots.txt
-    │   └── src
-    │       ├── App.css
-    │       ├── App.js
-    │       ├── App.test.js
-    │       ├── ethereumLogo.svg
-    │       ├── index.css
-    │       ├── index.js
-    │       ├── serviceWorker.js
-    │       └── setupTests.js
-    └── subgraph
         ├── README.md
-        ├── abis
-        │   └── erc20.json
+        ├── node_modules
         ├── package.json
-        ├── schema.graphql
-        ├── src
-        │   └── mappings
-        │       ├── tokens.ts
-        │       └── transfers.ts
-        └── subgraph.yaml
+        ├── public
+        │   ├── favicon.ico
+        │   ├── index.html
+        │   ├── logo192.png
+        │   ├── logo512.png
+        │   ├── manifest.json
+        │   └── robots.txt
+        └── src
+            ├── App.css
+            ├── App.js
+            ├── App.test.js
+            ├── ethereumLogo.svg
+            ├── index.css
+            ├── index.js
+            ├── serviceWorker.js
+            └── setupTests.js
+    
 ```
 
 Owing to this dependency on Yarn Workspaces, Create Eth App can't be used with npm.
@@ -62,7 +55,9 @@ Owing to this dependency on Yarn Workspaces, Create Eth App can't be used with n
 
 In the project directory, you can run:
 
-### React App
+#### `yarn`
+
+Installs dependencies
 
 #### `yarn react-app:start`
 
@@ -89,47 +84,5 @@ Your app is ready to be deployed!
 
 See the React documentation on [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-#### `yarn react-app:eject`
 
-**Note: this is a one-way operation. Once you `react-app:eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` the React app at any time. This command will
-remove the single build dependency from your React package.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right
-into the `react-app` package so you have full control over them. All of the commands except `react-app:eject` will still work,
-but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `react-app:eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-### Subgraph
-
-The Graph is a tool for for indexing events emitted on the Ethereum blockchain. It provides you with an easy-to-use GraphQL API. <br/>
-
-To learn more, check out the [The Graph documentation](https://thegraph.com/docs).
-
-#### `yarn subgraph:codegen`
-
-Generates AssemblyScript types for smart contract ABIs and the subgraph schema.
-
-#### `yarn subgraph:build`
-
-Compiles the subgraph to WebAssembly.
-
-#### `yarn subgraph:auth`
-
-Before deploying your subgraph, you need to sign up on the
-[Graph Explorer](https://thegraph.com/explorer/). There, you will be given an access token. Drop it in the command
-below:
-
-```sh
-GRAPH_ACCESS_TOKEN=your-access-token-here yarn subgraph:auth
-```
-
-#### `yarn subgraph:deploy`
-
-Deploys the subgraph to the official Graph Node.<br/>
-
-Replace `paulrberg/create-eth-app` in the package.json script with your subgraph's name.
-
-You may also want to [read more about the hosted service](https://thegraph.com/docs/quick-start#hosted-service).
