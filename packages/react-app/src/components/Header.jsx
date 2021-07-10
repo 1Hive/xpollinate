@@ -3,6 +3,8 @@ import { Box, Flex, Button, Image } from '@chakra-ui/react';
 import { Web3Context } from 'contexts/Web3Context';
 import networkName from 'lib/network';
 import { shortenAddress } from 'utils/index';
+import { Link } from '@chakra-ui/react';
+import { ExternalLinkIcon } from '@chakra-ui/icons';
 
 const styles = {
   gradient: 'linear-gradient(257.5deg, #EB0055 -39.73%, #FFFA80 107.97%)',
@@ -75,6 +77,23 @@ const Header = (props) => {
             No account found.
           </Button>
         )}
+      </Box>
+      <Box>
+        <Link href="https://support.connext.network/hc/en-us" isExternal>
+          <Button
+            colorScheme="red"
+            variant="outline"
+            borderRadius="1rem"
+            direction="column"
+            align="center"
+            p="0.5rem"
+            m="0.5rem"
+            fontWeight="light"
+            rightIcon={<ExternalLinkIcon />}
+          >
+            Support
+          </Button>
+        </Link>
       </Box>
     </Flex>
   );
