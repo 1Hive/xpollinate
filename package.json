@@ -14,7 +14,8 @@
     "react-app:ipfs": "yarn workspace @1hive-connext/react-app ipfs",
     "react-app:lint": "yarn workspace @1hive-connext/react-app lint",
     "react-app:start": "yarn workspace @1hive-connext/react-app start",
-    "react-app:test": "yarn workspace @1hive-connext/react-app test"
+    "react-app:test": "yarn workspace @1hive-connext/react-app test",
+    "react-app:deploy": "yarn workspace @1hive-connext/react-app build && firebase deploy"
   },
   "workspaces": {
     "nohoist": [
