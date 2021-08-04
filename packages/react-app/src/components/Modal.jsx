@@ -18,7 +18,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import getRpcUrl from 'lib/rpc';
 
 export const CONNEXT_ROUTER =
-  'vector52rjrwRFUkaJai2J4TrngZ6doTUXGZhizHmrZ6J15xVv4YFgFC';
+  'vector5AGCU8oedG9HDmrC7mU9fDyQkpVRovFtEauVq3fHGcmRdbg7iu';
 
 export const NETWORKS = [
   {
