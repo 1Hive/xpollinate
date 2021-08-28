@@ -2,7 +2,7 @@ import React from 'react';
 import { Modal, AvailableLiquidity } from 'components/index';
 import { useMediaQuery, Box, Flex, Image } from '@chakra-ui/react';
 
-const DISABLED = true;
+const DISABLED = false;
 
 const Container = () => {
   const [isLargerThan1280] = useMediaQuery('(min-width: 1280px)');
