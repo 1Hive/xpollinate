@@ -31,16 +31,16 @@ export const NETWORKS = [
       USDT: '0x4ECaBa5870353805a9F068101A40E0f32ed605C6',
     },
   },
-  {
-    assetId: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063',
-    chainName: 'Matic Mainnet',
-    chainId: 137,
-    assets: {
-      DAI: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063',
-      USDC: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
-      USDT: '0xc2132D05D31c914a87C6611C10748AEb04B58e8F',
-    },
-  },
+  // {
+  //   assetId: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063',
+  //   chainName: 'Matic Mainnet',
+  //   chainId: 137,
+  //   assets: {
+  //     DAI: '0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063',
+  //     USDC: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
+  //     USDT: '0xc2132D05D31c914a87C6611C10748AEb04B58e8F',
+  //   },
+  // },
   {
     assetId: '0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3',
     chainName: 'Fantom Mainnet',
