@@ -41,16 +41,16 @@ export const NETWORKS = [
       USDT: '0xc2132D05D31c914a87C6611C10748AEb04B58e8F',
     },
   },
-  // {
-  //   assetId: '0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3',
-  //   chainName: 'Fantom Mainnet',
-  //   chainId: 250,
-  //   assets: {
-  //     DAI: '0x8d11ec38a3eb5e956b052f67da8bdc9bef8abf3e',
-  //     USDC: '0x04068da6c83afcfa0e13ba15a6696662335d5b75',
-  //     USDT: '0x049d68029688eabf473097a2fc38ef61633a3c7a',
-  //   },
-  // },
+  {
+    assetId: '0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3',
+    chainName: 'Fantom Mainnet',
+    chainId: 250,
+    assets: {
+      DAI: '0x8d11ec38a3eb5e956b052f67da8bdc9bef8abf3e',
+      USDC: '0x04068da6c83afcfa0e13ba15a6696662335d5b75',
+      USDT: '0x049d68029688eabf473097a2fc38ef61633a3c7a',
+    },
+  },
   {
     assetId: '0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3',
     chainName: 'Binance Smart Chain Mainnet',
